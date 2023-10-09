@@ -1,0 +1,24 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    color: #26c281;
+    text-align: center;
+}
+
+h2 {
+    color: #0b7fab; 
+}
+
+li {
+    margin: 10px;
+}
+
+li b {
+    text-decoration: underline;
+}
+
+a:hover {
+    background-color: yellow;
+}
