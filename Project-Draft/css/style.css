@@ -16,20 +16,6 @@ h1 {
     text-align: center;
 }
 
-.flex-container-row#locate {
-    display: flex;
-    flex-direction: row;
-}
-
-.flex-container-column#locate {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-item {
-
-}
-
 nav {
     position: fixed;
     top: 0;
@@ -37,6 +23,7 @@ nav {
     background-color: lightseagreen;
     width: 100%;
     padding: .25rem;
+    z-index: 1;
 }
 
 nav a {
@@ -49,6 +36,33 @@ li {
     display: inline;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 ul#locate li {
     display:block
 }
+
+ul#locate div.card:hover {
+    background-color: #D3D3D3;
+}
+
+@media (min-width: 768px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }    
+    
+    .col {
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+}
+
+/* @media (min-width: 1200px) {
+    .col {
+        flex-basis: auto;
+    }
+} */
