@@ -10,7 +10,7 @@
         rel="stylesheet" 
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="Project-Draft/css/style.css">
     <title>CareMinder Pharmacy Locator</title>
 </head>
@@ -19,13 +19,45 @@
     <nav>
         <ul>
             <li><a href="#">Locate</a></li>
-            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Medication List</a></li>
+            <li><a href="#">Calender</a></li>
         </ul>
     </nav>
     <header>
         <h1>CareMinder</h1>
+        <h2 class="text-center">Pharmacy Locator</h2>
     </header>
+
     
+    <div class="flex-container-one" id="locate">
+        <!-- Pharmacy list -->
+        <section class="flex-item">
+            <h3><i class="material-icons">menu</i>Pharmacy List</h3>
+            <i class="material-icons">search</i>
+            <input type="text" placeholder="Search.."><br>
+            <ul id="locate">
+                <li><a>Pharmacy 1</a></li>
+                <li><a>Pharmacy 2</a></li>
+                <li><a>Pharmacy 3</a></li>
+                <li><a>Pharmacy 4</a></li>
+                <li><a>Pharmacy 5</a></li>
+            </ul>
+        </section>
+
+        <!-- Input menu -->
+        <section class="flex-item">
+            <p>Input the following information of the pharmacy:</p>
+            <form>
+                <label for="pharName">Name:</label><br>
+                <input type="text" id="pharName" name="pharName"><br>
+                <label for="pharAddress">Address:</label><br>
+                <input type="text" id="pharAddress" name="pharAddress"><br>
+                <label for="pharPhoneNum">Phone Number:</label><br>
+                <input type="text" id="pharPhoneNum" name="pharPhoneNum"><br>
+                <input type="submit" value="Add">
+            </form>
+            </section>
+    </div>
     <footer>
         <!-- Copyright Info -->
         <!-- Contact Info -->
