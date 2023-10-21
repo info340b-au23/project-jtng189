@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="author" content="Justin Tang, Pooja Thorali, Leo Zheng">
     <meta name="description" content="Pharmacy Locator">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="Project-Draft/css/style.css">
@@ -28,25 +27,86 @@
         <h2 class="text-center">Pharmacy Locator</h2>
     </header>
 
-    
-    <div class="flex-container-one" id="locate">
+    <div class="row" id="locate">
         <!-- Pharmacy list -->
-        <section class="flex-item">
-            <h3><i class="material-icons">menu</i>Pharmacy List</h3>
-            <i class="material-icons">search</i>
-            <input type="text" placeholder="Search.."><br>
-            <ul id="locate">
-                <li><a>Pharmacy 1</a></li>
-                <li><a>Pharmacy 2</a></li>
-                <li><a>Pharmacy 3</a></li>
-                <li><a>Pharmacy 4</a></li>
-                <li><a>Pharmacy 5</a></li>
-            </ul>
-        </section>
+        <div class="col">
+            <section>
+                <h3><i class="material-icons">menu</i>Pharmacy List</h3>
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search.."><br>
+                <ul id="locate">
+                    <div class="card">
+                        <div class="card-body">
+                            <li>
+                                <input type="radio" id="pharmacy1" name="pharmacy">
+                                <label for="pharmacy1">Pharmacy 1</label>
+                                <!-- aftermath: display remove button -->
+                                <!-- <input type="button" value="Remove"> -->
+                            </li>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <li>
+                                <input type="radio" id="pharmacy2" name="pharmacy">
+                                <label for="pharmacy2">Pharmacy 2</label>
+                            </li>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <li>
+                                <input type="radio" id="pharmacy3" name="pharmacy">
+                                <label for="pharmacy3">Pharmacy 3</label>
+                            </li>
+                        </div>
+                    </div>
+                    <!-- <div class="card">
+                        <div class="card-body">
+                            <li>
+                                <input type="radio" id="pharmacy4" name="pharmacy4">
+                                <label for="pharmacy4">Pharmacy 4</label>
+                            </li>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <li>
+                                <input type="radio" id="pharmacy5" name="pharmacy5">
+                                <label for="pharmacy5">Pharmacy 5</label>
+                            </li>
+                        </div>
+                    </div> -->
+                </ul>
+            </section>
+        </div>
 
+        <!-- Pharmacy Display Information -->
+        <div class="col">
+            <section>
+                <h3>Select Pharmacy for Map Information:</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <img class="map" src="Project-Draft/img/map-before.png" alt="google maps location">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col">
+            <section>
+                <h3>Select Pharmacy for Data Information:</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <input type="text" placeholder="Select from list..">
+                    </div>
+                </div>
+            </section>
+        </div>
+        
         <!-- Input menu -->
-        <section class="flex-item">
-            <p>Input the following information of the pharmacy:</p>
+        <section>
+            <h3>Add Pharmacy:</h3>
             <form>
                 <label for="pharName">Name:</label><br>
                 <input type="text" id="pharName" name="pharName"><br>
@@ -56,7 +116,7 @@
                 <input type="text" id="pharPhoneNum" name="pharPhoneNum"><br>
                 <input type="submit" value="Add">
             </form>
-            </section>
+        </section>
     </div>
     <footer>
         <!-- Copyright Info -->
