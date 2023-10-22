@@ -49,20 +49,43 @@ ul#locate div.card:hover {
     background-color: #D3D3D3;
 }
 
+/* Used to center Google's material icons (may not work with all icons; adjust font size of text accordingly) */
+.material-icons {
+    display:inline-flex;
+    vertical-align:top;
+}
+
+/* placeholder highlight for locator-interaction */
+.locator-highlight {
+    background-color: #D3D3D3;
+}
+
+/* Used to hide text for smaller screens */
+.item-label {
+    display: none;
+}
+
+/* Tablet size */
 @media (min-width: 768px) {
+    /* Reenables text for larger screens */
+    .item-label {
+        display: block;
+    }
+
     .row {
         display: flex;
         flex-wrap: wrap;
     }    
     
     .col {
-        flex-basis: 50%;
+        flex-basis: 10%;
         flex-grow: 1;
     }
 }
 
-/* @media (min-width: 1200px) {
+/* Desktop+ size */
+ @media (min-width: 992px) {
     .col {
-        flex-basis: auto;
+        flex-basis: 50%;
     }
-} */
+}
