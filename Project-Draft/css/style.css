@@ -113,10 +113,24 @@ img {
     }
 }
 
+#calendar .row {
+    justify-content: left;
+
+}
+
 #calendar .row .col {
-    flex: 1;
+    flex: 0 0 14.285%;
+    width: 14.285%;
 }
 
 #calendar .row .col .card:hover {
     box-shadow: 1px 3px 3px black;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    margin: 0rem 18rem;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    color: black;
 }
