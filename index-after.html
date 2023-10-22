@@ -19,8 +19,8 @@
             <li><a href="#">Locate</a></li>
             <li><a href="#">Medication List</a></li>
             <li><a href="#">Calender</a></li>
+            <li class="item-label"><a href="#">Username</a></li>
             <li><a href="#"><img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a></li>
-            <li><a href="#">Username</a></li>
         </ul>
     </nav>
     <header>
@@ -30,7 +30,7 @@
 
     <div class="row">
         <!-- Pharmacy list -->
-        <div class="col">
+        <div class="col col-sm col-md col-lg">
             <section>
                 <h3><i class="material-icons" aria-label="Pharmacy List">menu</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
@@ -65,10 +65,62 @@
                         <label for="pharmacy4">Pharmacy 4</label>
                     </div>
                 </div>
-                <!-- Input menu -->
-                <!-- placeholder text used to showcase that input has been entered -->
             </section>
+        </div>
 
+        <!-- Pharmacy Display Information -->
+        <div class="col col-sm col-md col-lg">
+            <section>
+                <h3>Map Information: Pharmacy 4</h3>
+                <div class="card map">
+                    <div class="card-body">
+                        <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col col-sm col-md col-lg">
+            <section>
+                <h3>Data Information: Pharmacy 4</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <a style="text-decoration: none;"
+                                href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
+                                <i class="material-icons" aria-label="Pharmacy location">home</i>
+                            </a>
+                            <span class="item-label">Location: <input type="text" id="location" name="location"
+                                    value="12345 X 12th Street, City, State 56789>"> </span>
+                        </div>
+                        <div>
+                            <a style="text-decoration: none;" href="tel:123-456-7890">
+                                <i class="material-icons" aria-label="Phone number">call</i>
+                            </a>
+                            <span class="item-label">Number (#): <input type="text" id="phoneNum" name="phoneNum"
+                                    value="123-456-7890"></span>
+                        </div>
+                        <div>
+                            <form>
+                                <label for="pharNotes">
+                                    <i class="material-icons" aria-label="Pharmacy Notes">note_alt</i>
+                                    <span class="item-label">Notes</span>
+                                </label><br>
+                                <textarea id="pharNotes" name="pharNotes" rows="10" cols="33">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
+                                    </textarea><br>
+                                <button type="submit" aria-label="Save Notes">Save</button>
+                                <button type="submit" aria-label="Edit pharmacy information">Edit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-4 col-md-4 col-lg-4">
+            <!-- Input menu -->
+            <!-- placeholder text used to showcase that input has been entered -->
             <section>
                 <h3>Add Pharmacy:</h3>
                 <form>
@@ -82,58 +134,18 @@
                 </form>
             </section>
         </div>
-
-        <!-- Pharmacy Display Information -->
-        <div class="col">
-            <section>
-                <h3>Map Information: Pharmacy 4</h3>
-                <div class="card map">
-                    <div class="card-body">
-                        <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div class="col">
-            <section>
-                <h3>Data Information: Pharmacy 4</h3>
-                <div class="card">
-                    <div class="card-body">
-                        <div>
-                            <a style="text-decoration: none;"
-                                href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
-                                <i class="material-icons" aria-label="Pharmacy location">home</i>
-                            </a>
-                            <span class="item-label">Location: <input type="text" id="location" name="location" value="12345 X 12th Street, City, State 56789>"> </span>
-                        </div>
-                        <div>
-                            <a style="text-decoration: none;" href="tel:123-456-7890">
-                                <i class="material-icons" aria-label="Phone number">call</i>
-                            </a>
-                            <span class="item-label">Number (#): <input type="text" id="phoneNum" name="phoneNum" value="123-456-7890"></span>
-                        </div>
-                        <div>
-                            <form>
-                                <label for="pharNotes">
-                                    <i class="material-icons" aria-label="Pharmacy Notes">note_alt</i>
-                                    <span class="item-label">Notes</span>
-                                </label><br>
-                                <textarea id="pharNotes" name="pharNotes" rows="10" cols="33">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
-                                </textarea>
-                                <button type="submit" aria-label="Save Notes">Save</button>
-                                <button type="submit" aria-label="Edit pharmacy information">Edit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
     </div>
     <footer>
-        <!-- Copyright Info -->
         <!-- Contact Info -->
+        <p>Author:
+            <a href="mailto:jtan189@uw.edu">Justin Tang</a> |
+            <a href="mailto:thoralip@uw.edu">Pooja Thorali</a> |
+            <a href="mailto:lzheng88@uw.edu">Leo Zheng</a>
+        </p>
+        <!-- Copyright Info -->
+        <p>
+            Copyright © 2023 CareMinder. All Rights Reserved.
+        </p>
     </footer>
 </body>
 
