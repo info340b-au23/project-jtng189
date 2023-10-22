@@ -14,6 +14,17 @@ header {
 h1 {
     color: #26c281;
     text-align: center;
+    font-size: 1.5rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+    text-align: center;
 }
 
 nav {
@@ -24,6 +35,7 @@ nav {
     width: 100%;
     padding: .25rem;
     z-index: 1;
+    text-align: center;
 }
 
 nav a {
@@ -61,11 +73,19 @@ img {
     display: none;
 }
 
+#locator div.card.map {
+    min-width: 340px;
+}
+
+#locator section {
+    text-align: center;
+}
+
 /* Tablet size */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
     .item-label {
-        display: block;
+        display: unset;
     }
 
     .row {
@@ -84,6 +104,12 @@ img {
  @media (min-width: 992px) {
     .col {
         flex-basis: 25%;
+    }
+
+    nav {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
     }
 }
 
