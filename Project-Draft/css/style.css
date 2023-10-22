@@ -89,3 +89,11 @@ ul#locate div.card:hover {
         flex-basis: auto;
     }
 }
+
+#calendar .row .col {
+    flex: 1;
+}
+
+#calendar .row .col .card:hover {
+    box-shadow: 1px 3px 3px black;
+}
