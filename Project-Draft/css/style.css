@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    padding-top: 5rem;
+    padding-top: 6rem;
 }
 
 h1 {
@@ -20,14 +20,14 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: lightseagreen;
+    background-color: #20b2aa;
     width: 100%;
     padding: .25rem;
     z-index: 1;
 }
 
 nav a {
-    color: white;
+    color: #141414;
     font-size: 1rem;
     margin: .5rem;
 }
@@ -41,23 +41,19 @@ img {
     height: auto;
 }
 
-ul#locate li {
-    display:block
-}
-
-ul#locate div.card:hover {
-    background-color: #D3D3D3;
-}
-
 /* Used to center Google's material icons (may not work with all icons; adjust font size of text accordingly) */
 .material-icons {
     display:inline-flex;
     vertical-align:top;
 }
 
+.highlight:hover {
+    background-color: #525252;
+}
+
 /* placeholder highlight for locator-interaction */
 .locator-highlight {
-    background-color: #D3D3D3;
+    background-color: #525252;
 }
 
 /* Used to hide text for smaller screens */
@@ -75,6 +71,7 @@ ul#locate div.card:hover {
     .row {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }    
     
     .col {
@@ -86,6 +83,6 @@ ul#locate div.card:hover {
 /* Desktop+ size */
  @media (min-width: 992px) {
     .col {
-        flex-basis: auto;
+        flex-basis: 25%;
     }
 }
