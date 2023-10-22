@@ -34,7 +34,11 @@
             <section>
                 <h3><i class="material-icons" aria-label="Pharmacy List">menu</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
-                <input type="text" placeholder="Search.." value="4"><br>
+                <input type="text" placeholder="Search.." value="pharmacy 4"><br>
+                <input type="radio" id="name-filter" name="filter" checked>
+                <label for="name-filter">Name</label>
+                <input type="radio" id="address-filter" name="filter">
+                <label for="address-filter">Address</label>
 
                 <!-- Filtered cards due to search input -->
                 <!-- <div class="card">
@@ -98,13 +102,13 @@
                                 href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
                                 <i class="material-icons" aria-label="Pharmacy location">home</i>
                             </a>
-                            <span class="item-label">Location: 12345 X 12th Street, City, State 56789</span>
+                            <span class="item-label">Location: <input type="text" id="pharAddress" name="pharAddress" value="12345 X 12th Street, City, State 56789>"> </span>
                         </div>
                         <div>
                             <a style="text-decoration: none;" href="tel:123-456-7890">
                                 <i class="material-icons" aria-label="Phone number">call</i>
                             </a>
-                            <span class="item-label">Number (#): 123-456-7890</span>
+                            <span class="item-label">Number (#): <input type="text" id="pharPhoneNum" name="pharPhoneNum" value="123-456-7890"></span>
                         </div>
                         <div>
                             <form>
@@ -115,6 +119,7 @@
                                 <textarea id="pharNotes" name="pharNotes" rows="10" cols="33">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
                                 </textarea>
                                 <button type="submit" aria-label="Save Notes">Save</button>
+                                <button type="submit" aria-label="Edit pharmacy information">Edit</button>
                             </form>
                         </div>
                     </div>
