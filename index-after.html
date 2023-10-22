@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="author" content="Justin Tang, Pooja Thorali, Leo Zheng">
+    <meta name="description" content="Pharmacy Locator">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="Project-Draft/css/style.css">
+    <title>CareMinder Pharmacy Locator</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Locate</a></li>
+            <li><a href="#">Medication List</a></li>
+            <li><a href="#">Calender</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>CareMinder</h1>
+        <h2 class="text-center">Pharmacy Locator</h2>
+    </header>
+
+    <div class="row" id="locate">
+        <!-- Pharmacy list -->
+        <div class="col">
+            <section>
+                <h3><i class="material-icons" aria-label="Pharmacy List">menu</i>Pharmacy List</h3>
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search.." value="4"><br>
+
+                <!-- Filtered cards due to search input -->
+                <!-- <div class="card">
+                    <div class="card-body">
+                        <input type="radio" id="pharmacy1" name="pharmacy">
+                        <label for="pharmacy1">Pharmacy 1</label>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <input type="radio" id="pharmacy2" name="pharmacy">
+                        <label for="pharmacy2">Pharmacy 2</label>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <input type="radio" id="pharmacy3" name="pharmacy">
+                        <label for="pharmacy3">Pharmacy 3</label>
+                    </div>
+                </div> -->
+                <div class="card locator-highlight">
+                    <div class="card-body">
+                        <input type="radio" id="pharmacy4" name="pharmacy" checked>
+                        <label for="pharmacy4">Pharmacy 4</label>
+                    </div>
+                </div>
+                <!-- Input menu -->
+                <!-- placeholder text used to showcase that input has been entered -->
+                <h3>Add Pharmacy:</h3>
+                <form>
+                    <label for="pharName">Name:</label><br>
+                    <input type="text" id="pharName" name="pharName" placeholder="Pharmacy 4"><br>
+                    <label for="pharAddress">Address:</label><br>
+                    <input type="text" id="pharAddress" name="pharAddress" placeholder="12345 X 12th Street"><br>
+                    <label for="pharPhoneNum">Phone Number:</label><br>
+                    <input type="text" id="pharPhoneNum" name="pharPhoneNum" placeholder="123-456-7890"><br>
+                    <button type="submit" aria-label="Add Pharmacy">Add</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Pharmacy Display Information -->
+        <div class="col">
+            <section>
+                <h3>Map Information: Pharmacy 4</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col">
+            <section>
+                <h3>Data Information: Pharmacy 4</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <a style="text-decoration: none;"
+                                href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
+                                <i class="material-icons" aria-label="Pharmacy location">home</i>
+                            </a>
+                            <span class="item-label">Location: 12345 X 12th Street, City, State 56789</span>
+                        </div>
+                        <div>
+                            <a style="text-decoration: none;" href="tel:123-456-7890">
+                                <i class="material-icons" aria-label="Phone number">call</i>
+                            </a>
+                            <span class="item-label">Number (#): 123-456-7890</span>
+                        </div>
+                        <div>
+                            <form>
+                                <label for="pharNotes">
+                                    <i class="material-icons" aria-label="Pharmacy Notes">note_alt</i>
+                                    <span class="item-label">Notes</span>
+                                </label><br>
+                                <textarea id="pharNotes" name="pharNotes" rows="10" cols="33">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
+                                </textarea>
+                                <button type="submit" aria-label="Save Notes">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <footer>
+        <!-- Copyright Info -->
+        <!-- Contact Info -->
+    </footer>
+</body>
+
+</html>
