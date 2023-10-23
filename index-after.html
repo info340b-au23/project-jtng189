@@ -35,7 +35,8 @@
                     <ul class="nav-item">
                         <li class="item-hide nav-item"><a href="#">Username</a></li>
                         <li class="nav-item"><a href="#">
-                            <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a>
+                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture">
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -46,15 +47,15 @@
     <h2 class="text-center">Pharmacy Locator</h2>
     <div class="row">
         <!-- Pharmacy list -->
-        <div class="col col-sm col-md col-lg">
+        <div class="pharmacy-list col col-sm col-md col-lg">
             <section class="locator">
                 <h3><i class="material-icons" aria-label="Pharmacy List">list</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
                 <input type="text" placeholder="Search.." value="pharmacy 4"><br>
                 <input type="radio" id="name-filter" name="filter" checked>
-                <label for="name-filter">Name</label>
+                <label class="filter-spacing" for="name-filter">Name</label>
                 <input type="radio" id="address-filter" name="filter">
-                <label for="address-filter">Address</label>
+                <label class="filter-spacing" for="address-filter">Address</label>
 
                 <!-- Filtered cards due to search input -->
                 <div class="card locator-highlight">
@@ -71,13 +72,11 @@
             <section class="locator">
                 <h3>Map Information: Pharmacy 4</h3>
                 <div class="card map mx-auto">
-                    <div class="card-body">
-                        <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
-                    </div>
+                    <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
                 </div>
             </section>
         </div>
-        <div class="col col-sm col-md col-lg">
+        <div class="pharmacy-data col col-sm col-md col-lg">
             <section class="locator">
                 <h3>Data Information: Pharmacy 4</h3>
                 <div class="card">
@@ -119,7 +118,7 @@
     <!-- Input menu -->
     <!-- placeholder text used to showcase that input has been entered -->
     <div class="row">
-        <div class="col col-sm-12 col-md-6 col-lg-6 offset-lg-3">
+        <div class="pharmacy-add col col-sm-12 col-md-8 col-lg-6 mx-auto">
             <section class="locator">
                 <h3>Add Pharmacy:</h3>
                 <form>
