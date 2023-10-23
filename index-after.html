@@ -19,7 +19,8 @@
             <div class="features">
                 <nav>
                     <ul>
-                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a></li>
+                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a>
+                        </li>
                         <li class="item-hide nav-item"><a href="index.html">Locate</a></li>
                         <li class="item-hide nav-item"><a href="tracker.html">Medication List</a></li>
                         <li class="item-hide nav-item"><a href="calendar.html">Calender</a></li>
@@ -94,10 +95,10 @@
         </div>
 
         <!-- Pharmacy Display Information -->
-        <div class="col col-sm col-md col-lg-6">
+        <div class="col col-sm col-md col-lg-5">
             <section class="locator">
                 <h3>Map Information: Pharmacy 4</h3>
-                <div class="locator card map">
+                <div class="locator card map mx-auto">
                     <div class="card-body">
                         <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
                     </div>
@@ -114,14 +115,14 @@
                                 href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
                                 <i class="material-icons" aria-label="Pharmacy location">home</i>
                             </a>
-                            <span class="item-label">Location: <input type="text" id="location" name="location"
+                            <span class="item-hide">Location: <input type="text" id="location" name="location"
                                     value="12345 X 12th Street, City, State 56789>"> </span>
                         </div>
                         <div>
                             <a style="text-decoration: none;" href="tel:123-456-7890">
                                 <i class="material-icons" aria-label="Call Pharmacy Phone Number">call</i>
                             </a>
-                            <span class="item-label">Number (#): <input type="text" id="phoneNum" name="phoneNum"
+                            <span class="item-hide">Number (#): <input type="text" id="phoneNum" name="phoneNum"
                                     value="123-456-7890"></span>
                         </div>
                         <div>
@@ -130,7 +131,7 @@
                                     <i class="material-icons" aria-label="Pharmacy Notes">note_alt</i>
                                     <span class="item-label">Notes</span>
                                 </label><br>
-                                <textarea id="pharNotes" name="pharNotes" rows="10" cols="33">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
+                                <textarea class="form-control" id="pharNotes" name="pharNotes" rows="10">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
                                     </textarea><br>
                                 <button type="submit" aria-label="Save Notes">Save</button>
                                 <button type="submit" aria-label="Edit pharmacy information">Edit</button>
@@ -144,7 +145,7 @@
     </div>
 
     <div class="row">
-        <div class="col col-sm-12 col-md-12 col-lg-5">
+        <div class="col col-sm-12 col-md-6 col-lg-6 offset-lg-3">
             <!-- Input menu -->
             <!-- placeholder text used to showcase that input has been entered -->
             <section class="locator">
