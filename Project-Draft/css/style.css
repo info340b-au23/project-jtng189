@@ -188,7 +188,7 @@ img {
     display: none;
 }
 
-div.locator.card.map {
+div.card.map {
     min-width: 200px;
     width: 75%;
     justify-content: center;
