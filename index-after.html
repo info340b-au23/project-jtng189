@@ -19,7 +19,8 @@
             <div class="features">
                 <nav>
                     <ul>
-                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a></li>
+                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a>
+                        </li>
                         <li class="item-hide nav-item"><a href="index.html">Locate</a></li>
                         <li class="item-hide nav-item"><a href="tracker.html">Medication List</a></li>
                         <li class="item-hide nav-item"><a href="calendar.html">Calender</a></li>
@@ -34,56 +35,29 @@
                     <ul class="nav-item">
                         <li class="item-hide nav-item"><a href="#">Username</a></li>
                         <li class="nav-item"><a href="#">
-                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a>
+                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture">
+                            </a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
-        <!-- <nav>
-            <ul class="nav-list">
-                <li class="nav-item title"><h1>CareMinder</h1></li>
-                <li class="item-label nav-item"><a href="index.html">Locate</a></li>
-                <li class="item-label nav-item"><a href="#">Medication List</a></li>
-                <li class="item-label nav-item"><a href="calendar.html">Calender</a></li>
-                <li class="item-label nav-item"><a href="#">Username</a></li>
-                <li class="nav-item"><a href="#"><img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a></li>
-            </ul>
-        </nav> -->
     </header>
 
     <h2 class="text-center">Pharmacy Locator</h2>
     <div class="row">
         <!-- Pharmacy list -->
-        <div class="col col-sm col-md col-lg">
+        <div class="pharmacy-list col col-sm col-md col-lg">
             <section class="locator">
                 <h3><i class="material-icons" aria-label="Pharmacy List">list</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
                 <input type="text" placeholder="Search.." value="pharmacy 4"><br>
                 <input type="radio" id="name-filter" name="filter" checked>
-                <label for="name-filter">Name</label>
+                <label class="filter-spacing" for="name-filter">Name</label>
                 <input type="radio" id="address-filter" name="filter">
-                <label for="address-filter">Address</label>
+                <label class="filter-spacing" for="address-filter">Address</label>
 
                 <!-- Filtered cards due to search input -->
-                <!-- <div class="card">
-                    <div class="card-body">
-                        <input type="radio" id="pharmacy1" name="pharmacy">
-                        <label for="pharmacy1">Pharmacy 1</label>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <input type="radio" id="pharmacy2" name="pharmacy">
-                        <label for="pharmacy2">Pharmacy 2</label>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <input type="radio" id="pharmacy3" name="pharmacy">
-                        <label for="pharmacy3">Pharmacy 3</label>
-                    </div>
-                </div> -->
                 <div class="card locator-highlight">
                     <div class="card-body">
                         <input type="radio" id="pharmacy4" name="pharmacy" checked>
@@ -94,17 +68,15 @@
         </div>
 
         <!-- Pharmacy Display Information -->
-        <div class="col col-sm col-md col-lg-6">
+        <div class="col col-sm col-md col-lg-5">
             <section class="locator">
                 <h3>Map Information: Pharmacy 4</h3>
-                <div class="locator card map">
-                    <div class="card-body">
-                        <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
-                    </div>
+                <div class="card map mx-auto">
+                    <img class="map" src="Project-Draft/img/map-after.png" alt="google maps location">
                 </div>
             </section>
         </div>
-        <div class="col col-sm col-md col-lg">
+        <div class="pharmacy-data col col-sm col-md col-lg">
             <section class="locator">
                 <h3>Data Information: Pharmacy 4</h3>
                 <div class="card">
@@ -114,14 +86,14 @@
                                 href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
                                 <i class="material-icons" aria-label="Pharmacy location">home</i>
                             </a>
-                            <span class="item-label">Location: <input type="text" id="location" name="location"
+                            <span class="item-hide">Location: <input type="text" id="location" name="location"
                                     value="12345 X 12th Street, City, State 56789>"> </span>
                         </div>
                         <div>
                             <a style="text-decoration: none;" href="tel:123-456-7890">
                                 <i class="material-icons" aria-label="Call Pharmacy Phone Number">call</i>
                             </a>
-                            <span class="item-label">Number (#): <input type="text" id="phoneNum" name="phoneNum"
+                            <span class="item-hide">Number (#): <input type="text" id="phoneNum" name="phoneNum"
                                     value="123-456-7890"></span>
                         </div>
                         <div>
@@ -130,7 +102,7 @@
                                     <i class="material-icons" aria-label="Pharmacy Notes">note_alt</i>
                                     <span class="item-label">Notes</span>
                                 </label><br>
-                                <textarea id="pharNotes" name="pharNotes" rows="10" cols="33">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
+                                <textarea class="form-control" id="pharNotes" name="pharNotes" rows="10">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------
                                     </textarea><br>
                                 <button type="submit" aria-label="Save Notes">Save</button>
                                 <button type="submit" aria-label="Edit pharmacy information">Edit</button>
@@ -143,10 +115,10 @@
         </div>
     </div>
 
+    <!-- Input menu -->
+    <!-- placeholder text used to showcase that input has been entered -->
     <div class="row">
-        <div class="col col-sm-12 col-md-12 col-lg-5">
-            <!-- Input menu -->
-            <!-- placeholder text used to showcase that input has been entered -->
+        <div class="pharmacy-add col col-sm-12 col-md-8 col-lg-6 mx-auto">
             <section class="locator">
                 <h3>Add Pharmacy:</h3>
                 <form>
