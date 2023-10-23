@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Management Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .app-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #medicationName, #doseAmount {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Medication Management Tracker</h1>
+        <table>
+            <tr>
+                <th>Medication Name</th>
+                <th>Dose Amount (mg)</th>
+                <th>Times Taken</th>
+            </tr>
+            <tr>
+                <td>Aspirin</td>
+                <td>100</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Ibuprofen</td>
+                <td>200</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Lisinopril</td>
+                <td>10</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Simvastatin</td>
+                <td>20</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
