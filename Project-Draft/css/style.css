@@ -7,14 +7,73 @@ body {
     background-color: #141414;
     color: #a3a3a3;
     margin-bottom: 100px;
+    margin-right: 0;
+}
+
+/* color testing */
+.row {
+    border: 1px solid red;
+    /* background-color: gray; */
+    border-radius: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* color testing */
+.col {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid red;
+    background-color: gray;
+    border-radius: 30px;
+}
+
+h1 {
+    color: #26c281;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+    text-align: center;
 }
 
 header {
-    padding-top: 6rem;
+    background-color: #20b2aa;
 }
 
+/* .nav-list {
+    background-color: #20b2aa;
+    /* padding: .25rem; */
+/* width: 100%; */
+/* display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+} */
+
+/* .nav-item {
+    list-style: none;
+    margin-right: 2rem;
+}
+
+.nav-item h1, .nav-item a {
+    color: #121212;
+}
+
+.nav-item.title {
+    margin-right: auto;
+    margin-left: 2rem;
+}  */
+
 footer {
-    position:fixed;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -31,23 +90,8 @@ footer a {
     color: #121212;
 }
 
-h1 {
-    color: #26c281;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-h2 {
-    text-align: center;
-    font-size: 1.25rem;
-}
-
-h3 {
-    font-size: 1.15rem;
-    text-align: center;
-}
-
-nav {
+/* old navbar: Title on left, rest on right side */
+/* nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,6 +107,50 @@ nav a {
     font-size: 1rem;
     margin: .5rem;
     text-align: center;
+} */
+
+.nav {
+    text-align: center;
+    padding:0;
+}
+
+.features {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 0;
+}
+
+.title {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+
+nav {
+    padding: 0;
+}
+
+.nav-item a, h1.nav-item {
+    color:#121212;
+    text-align: center;
+}
+
+.nav-item a:hover, footer a:hover {
+    color: white;
+    text-shadow: 1px 1px 5px #121212;
 }
 
 li {
@@ -90,15 +178,20 @@ img {
 }
 
 /* Used to hide text for smaller screens */
-.item-label {
+.item-hide {
     display: none;
 }
 
 #locator div.card.map {
-    min-width: 340px;
+    min-width: 200px;
 }
 
 #locator section {
+    text-align: center;
+}
+
+.mobile-show i {
+    font-size: 2.5rem;
     text-align: center;
 }
 
@@ -106,8 +199,12 @@ img {
 @media (min-width: 768px) {
 
     /* Reenables text for larger screens */
-    .item-label {
+    .item-hide {
         display: unset;
+    }
+
+    .mobile-show {
+        display: none;
     }
 
     body {
@@ -125,27 +222,51 @@ img {
     h3 {
         font-size: 1.35rem;
     }
-    
 
+    /* Navbar */
+    .nav {
+        display: flex;
+    }
+    
+    .nav-item a {
+        margin-right: 1rem;
+        font-size: 1.15rem;
+    }
+
+    .features {
+        margin-top: 1rem;
+    }
+
+    .title {
+        align-items: center;
+    }
+
+    .user {
+        margin-top: 1rem;
+    }
+
+    footer p {
+        font-size: .85rem;
+    }
+
+    footer a {
+        font-size: .9rem;
+    }
 }
 
 /* Desktop+ size */
 @media (min-width: 992px) {
-    nav {
-        display: flex;
-        flex-grow: 1;
-        justify-content: flex-end;
-    }
-
-    nav a {
-        font-size: 1.25rem;
-    }
 
     footer p {
         font-size: 1.05rem;
     }
+
     footer a {
-        font-size: 1.05rem;
+        font-size: 1.10rem;
+    }
+
+    .nav-item a {
+        margin-right: 2rem;
     }
 
     h1 {
@@ -159,8 +280,6 @@ img {
     h3 {
         font-size: 1.5rem;
     }
-    
-
 }
 
 #calendar .row {
@@ -177,10 +296,12 @@ img {
     box-shadow: 1px 3px 3px black;
 }
 
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
     margin: 0rem 18rem;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     color: black;
 }
