@@ -217,6 +217,10 @@ section.locator {
         margin-bottom: 10%;
     }
 
+    .row {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
     h1 {
         font-size: 1.75rem;
     }
