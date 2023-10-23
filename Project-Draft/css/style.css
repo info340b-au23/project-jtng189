@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: sans-serif, Verdana, Geneva, Tahoma;
     background-color: #141414;
     color: #a3a3a3;
     margin-bottom: 100px;
@@ -11,7 +11,7 @@ body {
 
 /* color testing */
 .row {
-    border: 1px solid red;
+    border: 1px solid #CDF1BF;
     /* background-color: gray; */
     border-radius: 30px;
     margin-left: 1rem;
@@ -21,8 +21,8 @@ body {
 /* color testing */
 .col {
     margin-top: 1rem;
-    border: 1px solid red;
-    background-color: gray;
+    border: 1px solid #CDF1BF;
+    background-color: black;
     border-radius: 30px;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -33,7 +33,7 @@ textarea {
 }
 
 h1 {
-    color: #26c281;
+    color: #CDF1BF;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -65,7 +65,8 @@ input#address-filter {
 }
 
 header {
-    background-color: #20b2aa;
+    background-color: #AFBC9A;
+    color: black;
 }
 
 footer {
@@ -73,9 +74,9 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #20b2aa;
+    background-color: #AFBC9A;
     text-align: center;
-    color: #121212;
+    color: white;
 }
 
 footer p {
@@ -83,12 +84,12 @@ footer p {
 }
 
 footer a {
-    color: #121212;
+    color: white;
 }
 
 .nav {
     text-align: center;
-    padding: 0;
+    background-color: #AFBC9A;
 }
 
 .features {
@@ -122,14 +123,14 @@ nav {
 
 .nav-item a,
 h1.nav-item {
-    color: #121212;
+    color: black;
     text-align: center;
 }
 
 .nav-item a:hover,
 footer a:hover {
     color: white;
-    text-shadow: 1px 1px 5px #121212;
+    text-shadow: 1px 1px 5px white;
 }
 
 li {
@@ -148,12 +149,12 @@ img {
 }
 
 .highlight:hover {
-    background-color: #525252;
+    background-color: black;
 }
 
 /* placeholder highlight for locator-interaction */
 .locator-highlight {
-    background-color: #525252;
+    background-color: black;
 }
 
 /* Used to hide text for smaller screens */
@@ -202,7 +203,6 @@ section.locator {
 
 /* Tablet size */
 @media (min-width: 768px) {
-
     /* Reenables text for larger screens */
     .item-hide {
         display: unset;
@@ -272,13 +272,10 @@ section.locator {
         margin: 1rem 0;
         padding: 0 3rem;
     }
-
 }
-
 
 /* Desktop+ size */
 @media (min-width: 992px) {
-
     .row {
         margin-left: 5rem;
         margin-right: 5rem;
@@ -291,7 +288,6 @@ section.locator {
     footer a {
         font-size: 1.10rem;
     }
-
 
     h1 {
         font-size: 2rem;
@@ -317,11 +313,10 @@ section.locator {
 
 .container .row {
     justify-content: left;
-
 }
 
 .container .card {
-    height: 
+    height:
 }
 
 .container .col .card-deck {
@@ -341,4 +336,44 @@ section.locator {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     color: black;
+}
+
+.app-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #333;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#medicationName, #doseAmount {
+    padding: 5px;
 }
