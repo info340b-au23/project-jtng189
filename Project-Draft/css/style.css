@@ -117,7 +117,7 @@ nav a {
 
 .nav {
     text-align: center;
-    padding:0;
+    padding: 0;
 }
 
 .features {
@@ -149,12 +149,14 @@ nav {
     padding: 0;
 }
 
-.nav-item a, h1.nav-item {
-    color:#121212;
+.nav-item a,
+h1.nav-item {
+    color: #121212;
     text-align: center;
 }
 
-.nav-item a:hover, footer a:hover {
+.nav-item a:hover,
+footer a:hover {
     color: white;
     text-shadow: 1px 1px 5px #121212;
 }
@@ -203,55 +205,43 @@ section.locator {
     text-align: center;
 }
 
-/* Desktop+ size */
-@media (min-width: 992px) {
-    
-    body {
-        margin-bottom: 7.5%;
-    }
-    
-    .row {
-        margin-left: 5rem;
-        margin-right: 5rem;
-    }
+/* Tablet size */
+@media (min-width: 768px) {
     
     /* Reenables text for larger screens */
     .item-hide {
         display: unset;
     }
-
+    
+    /* Hides mobile functions */
     .mobile-show {
         display: none;
     }
 
-    footer p {
-        font-size: 1.05rem;
+    body {
+        margin-bottom: 10%;
     }
 
-    footer a {
-        font-size: 1.10rem;
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.55rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+    }
+
+    /* Navbar */
+    .nav {
+        display: flex;
     }
 
     .nav-item a {
         margin-right: 2rem;
         font-size: 1.15rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-     /* Navbar */
-     .nav {
-        display: flex;
     }
 
     .features {
@@ -264,6 +254,45 @@ section.locator {
 
     .user {
         margin-top: 1rem;
+    }
+
+    footer p {
+        font-size: .85rem;
+    }
+
+    footer a {
+        font-size: .9rem;
+    }
+}
+
+
+/* Desktop+ size */
+@media (min-width: 992px) {
+
+    .row {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+
+    footer p {
+        font-size: 1.05rem;
+    }
+
+    footer a {
+        font-size: 1.10rem;
+    }
+
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
     }
 }
 
