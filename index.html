@@ -13,7 +13,7 @@
     <title>CareMinder Pharmacy Locator</title>
 </head>
 
-<body id="locator">
+<body>
     <header>
         <div class="nav">
             <div class="features mobile-left">
@@ -56,7 +56,7 @@
     <div class="row">
         <!-- Pharmacy list -->
         <div class="col col-sm col-md col-lg pharmacy-list">
-            <section>
+            <section class="locator">
                 <h3><i class="material-icons" aria-label="Pharmacy List">list</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
                 <input type="text" placeholder="Search.."><br>
@@ -87,19 +87,19 @@
         </div>
 
         <!-- Pharmacy Display Information -->
-        <div class="col col-sm col-md col-lg">
-            <section>
+        <div class="col col-sm col-md col-lg-6">
+            <section class="locator">
                 <h3>Select Pharmacy for Map Information:</h3>
-                <div class="card map">
-                    <div class="card-body">
+                <div class="locator card map mx-auto">
+                    <!-- <div class="card-body"> -->
                         <img class="map" src="Project-Draft/img/map-before.png" alt="google maps location">
-                    </div>
+                    <!-- </div> -->
                 </div>
             </section>
         </div>
 
         <div class="col col-sm col-md col-lg">
-            <section>
+            <section class="locator">
                 <h3>Select Pharmacy for Data Information:</h3>
                 <div class="card">
                     <div class="card-body">
@@ -112,8 +112,8 @@
     <!-- Input menu -->
     <!-- value are example text for before/after representation -->
     <div class="row">
-        <div class="col col-sm-12 col-md-12 col-lg-5">
-            <section>
+        <div class="col col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+            <section class="locator">
                 <h3>Add Pharmacy:</h3>
                 <form>
                     <label for="pharName">Name:</label><br>
