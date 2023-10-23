@@ -182,11 +182,13 @@ img {
     display: none;
 }
 
-#locator div.card.map {
+div.locator.card.map {
     min-width: 200px;
+    width: 75%;
+    justify-content: center;
 }
 
-#locator section {
+section.locator {
     text-align: center;
 }
 
