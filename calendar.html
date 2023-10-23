@@ -17,21 +17,38 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="#">Locate</a></li>
-            <li><a href="#">Medication List</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li class="item-label"><a href="#">Username</a></li>
-            <li><a href="#"><img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a></li>
-        </ul>
-    </nav>
+    
     <header>
-        <h1>Calendar</h1>
-        <p>Click a day to add events to your calendar</p>
+        <div class="nav">
+            <div class="features mobile-left">
+                <nav>
+                    <ul>
+                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a></li>
+                        <li class="nav-item item-hide"><a href="index.html">Locate</a></li>
+                        <li class="nav-item item-hide"><a href="tracker.html">Medication List</a></li>
+                        <li class="nav-item item-hide"><a href="calendar.html">Calender</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="title">
+                <h1 class="nav-item">CareMinder</h1>
+            </div>
+            <div class="user">
+                <nav>
+                    <ul class="nav-item">
+                        <li class="nav-item item-hide"><a href="#">Username</a></li>
+                        <li class="nav-item"><a href="#">
+                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main>
+        <h1>Calendar</h1>
+        <p>Click a day to add events to your calendar</p>
         <div class="container" id="calendar">
             <section>
                 <div id="carouselControls" class="carousel" data-interval="false">
@@ -386,6 +403,19 @@
             </div> 
         </div>
     </main>
+
+    <footer>
+        <!-- Contact Info -->
+        <p>Author:
+            <a href="mailto:jtan189@uw.edu">Justin Tang</a> |
+            <a href="mailto:thoralip@uw.edu">Pooja Thorali</a> |
+            <a href="mailto:lzheng88@uw.edu">Leo Zheng</a>
+        </p>
+        <!-- Copyright Info -->
+        <p>
+            Copyright © 2023 CareMinder. All Rights Reserved.
+        </p>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

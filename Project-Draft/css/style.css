@@ -284,18 +284,22 @@ section.locator {
     }
 }
 
-#calendar .row {
+.container .row {
     justify-content: left;
 
 }
 
-#calendar .row .col {
+.container .card {
+    height: 
+}
+
+.container .col .card-deck {
     flex: 0 0 14.285%;
     width: 14.285%;
 }
 
-#calendar .row .col .card:hover {
-    box-shadow: 1px 3px 3px black;
+.container .row .col .card:hover {
+    box-shadow: 0px 0px 20px white;
 }
 
 .carousel-control-prev,
