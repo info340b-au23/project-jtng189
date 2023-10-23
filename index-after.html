@@ -14,25 +14,49 @@
 </head>
 
 <body id="locator">
-    <nav>
-        <ul>
-            <li><a href="index.html">Locate</a></li>
-            <li><a href="#">Medication List</a></li>
-            <li><a href="calendar.html">Calender</a></li>
-            <li class="item-label"><a href="#">Username</a></li>
-            <li><a href="#"><img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a></li>
-        </ul>
-    </nav>
     <header>
-        <h1>CareMinder</h1>
-        <h2 class="text-center">Pharmacy Locator</h2>
+        <div class="nav">
+            <div class="features">
+                <nav>
+                    <ul>
+                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a></li>
+                        <li class="item-hide nav-item"><a href="index.html">Locate</a></li>
+                        <li class="item-hide nav-item"><a href="tracker.html">Medication List</a></li>
+                        <li class="item-hide nav-item"><a href="calendar.html">Calender</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="title">
+                <h1 class="nav-item">CareMinder</h1>
+            </div>
+            <div class="user">
+                <nav>
+                    <ul class="nav-item">
+                        <li class="item-hide nav-item"><a href="#">Username</a></li>
+                        <li class="nav-item"><a href="#">
+                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- <nav>
+            <ul class="nav-list">
+                <li class="nav-item title"><h1>CareMinder</h1></li>
+                <li class="item-label nav-item"><a href="index.html">Locate</a></li>
+                <li class="item-label nav-item"><a href="#">Medication List</a></li>
+                <li class="item-label nav-item"><a href="calendar.html">Calender</a></li>
+                <li class="item-label nav-item"><a href="#">Username</a></li>
+                <li class="nav-item"><a href="#"><img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a></li>
+            </ul>
+        </nav> -->
     </header>
 
     <div class="row">
         <!-- Pharmacy list -->
         <div class="col col-sm col-md col-lg">
             <section>
-                <h3><i class="material-icons" aria-label="Pharmacy List">menu</i>Pharmacy List</h3>
+                <h3><i class="material-icons" aria-label="Pharmacy List">list</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
                 <input type="text" placeholder="Search.." value="pharmacy 4"><br>
                 <input type="radio" id="name-filter" name="filter" checked>
@@ -94,7 +118,7 @@
                         </div>
                         <div>
                             <a style="text-decoration: none;" href="tel:123-456-7890">
-                                <i class="material-icons" aria-label="Phone number">call</i>
+                                <i class="material-icons" aria-label="Call Pharmacy Phone Number">call</i>
                             </a>
                             <span class="item-label">Number (#): <input type="text" id="phoneNum" name="phoneNum"
                                     value="123-456-7890"></span>
@@ -119,7 +143,7 @@
     </div>
 
     <div class="row">
-        <div class="col col-sm-4 col-md-4 col-lg-4">
+        <div class="col col-sm-12 col-md-12 col-lg-5">
             <!-- Input menu -->
             <!-- placeholder text used to showcase that input has been entered -->
             <section>
