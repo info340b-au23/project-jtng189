@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="author" content="Justin Tang, Pooja Thorali, Leo Zheng">
     <meta name="description" content="Pharmacy Locator">
+    <link rel="icon" type="image/png" href="Project-Draft/img/favicon.png"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,7 +20,7 @@
             <div class="features mobile-left">
                 <nav>
                     <ul>
-                        <li class="mobile-show nav-item"><a href="tracker.html"><i class="material-icons">menu</i></a>
+                        <li class="mobile-show nav-item"><a id="nav-menu" href="tracker.html"><i class="material-icons">menu</i></a>
                         </li>
                         <li class="nav-item item-hide"><a href="index.html">Locate</a></li>
                         <li class="nav-item item-hide"><a href="tracker.html">Medication List</a></li>
@@ -50,7 +51,7 @@
             <section class="locator">
                 <h3><i class="material-icons" aria-label="Pharmacy List">list</i>Pharmacy List</h3>
                 <i class="material-icons">search</i>
-                <input type="text" placeholder="Search.."><br>
+                <input id="search-pharmacy" type="text" placeholder="Search.."><br>
                 <input type="radio" id="name-filter" name="filter">
                 <label class="filter-spacing" for="name-filter">Name</label>
                 <input type="radio" id="address-filter" name="filter">
@@ -115,7 +116,7 @@
                     <label for="pharPhoneNum">Phone Number:</label><br>
                     <input type="text" id="pharPhoneNum" name="pharPhoneNum" placeholder="123-456-7890"
                         value="123-456-7890"><br>
-                    <button type="submit" aria-label="Add Pharmacy"><a href="index-after.html">Add</a></button>
+                    <button type="submit" id="pharAdd" aria-label="Add Pharmacy"><a href="index-after.html">Add</a></button>
                 </form>
             </section>
         </div>
