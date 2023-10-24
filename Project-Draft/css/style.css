@@ -76,7 +76,7 @@ footer {
     width: 100%;
     background-color: #AFBC9A;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 footer p {
@@ -84,7 +84,7 @@ footer p {
 }
 
 footer a {
-    color: white;
+    color: black;;
 }
 
 .nav {
@@ -130,7 +130,7 @@ h1.nav-item {
 .nav-item a:hover,
 footer a:hover {
     color: white;
-    text-shadow: 1px 1px 5px white;
+    text-shadow: 1px 1px 10px black;
 }
 
 li {

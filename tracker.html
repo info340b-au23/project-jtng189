@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta name="author" content="Justin Tang, Pooja Thorali, Leo Zheng">
-        <meta name="description" content="Pharmacy Locator">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="Project-Draft/css/style.css">
-        <title>CareMinder Medication Management</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="author" content="Justin Tang, Pooja Thorali, Leo Zheng">
+    <meta name="description" content="Pharmacy Locator">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="Project-Draft/css/style.css">
+
+    <title>CareMinder Medication Management</title>
+</head>
 
 <body>
     <header>
@@ -34,43 +35,60 @@
                     <ul class="nav-item">
                         <li class="nav-item item-hide"><a href="#">Username</a></li>
                         <li class="nav-item"><a href="#">
-                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a>
+                            <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    
+
     <div class="app-container">
-        <h1>Medication Management Tracker</h1>
-        <table>
-            <tr>
-                <th>Medication Name</th>
-                <th>Dose Amount (mg)</th>
-                <th>Times Taken</th>
-            </tr>
-            <tr>
-                <td>Aspirin</td>
-                <td>100</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Ibuprofen</td>
-                <td>200</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Lisinopril</td>
-                <td>10</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Simvastatin</td>
-                <td>20</td>
-                <td>0</td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Medication Name</th>
+                        <th>Dose Amount (mg)</th>
+                        <th>Times Taken</th>
+                        <th>Taken Today?</th> <!-- New column -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aspirin</td>
+                        <td>100</td>
+                        <td>0</td>
+                        <td><input type="checkbox" disabled></td> <!-- New checkbox column -->
+                    </tr>
+                    <tr>
+                        <td>Ibuprofen</td>
+                        <td>200</td>
+                        <td>0</td>
+                        <td><input type="checkbox" disabled></td> <!-- New checkbox column -->
+                    </tr>
+                    <tr>
+                        <td>Lisinopril</td>
+                        <td>10</td>
+                        <td>0</td>
+                        <td><input type="checkbox" disabled></td> <!-- New checkbox column -->
+                    </tr>
+                    <tr>
+                        <td>Simvastatin</td>
+                        <td>20</td>
+                        <td>0</td>
+                        <td><input type="checkbox" disabled></td> <!-- New checkbox column -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="text-right mt-3">
+            <button class="btn btn-success">Add Medication</button> 
+        </div>
+
+        <img src="Project-Draft/img/medication.png" alt="Medication" class="header-image">
     </div>
 
     <footer>
@@ -85,6 +103,5 @@
             Copyright © 2023 CareMinder. All Rights Reserved.
         </p>
     </footer>
-    
 </body>
 </html>
