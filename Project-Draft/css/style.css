@@ -76,7 +76,7 @@ footer {
     width: 100%;
     background-color: #AFBC9A;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 footer p {
@@ -84,7 +84,7 @@ footer p {
 }
 
 footer a {
-    color: white;
+    color: black;;
 }
 
 .nav {
