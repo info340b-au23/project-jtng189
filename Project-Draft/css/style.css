@@ -201,6 +201,11 @@ section.locator {
     padding: 0 1rem;
 }
 
+
+.container table {
+    display: none;
+}
+
 /* Tablet size */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
@@ -272,6 +277,12 @@ section.locator {
         margin: 1rem 0;
         padding: 0 3rem;
     }
+
+    .container table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
 }
 
 /* Desktop+ size */
@@ -311,26 +322,9 @@ section.locator {
     }
 }
 
-.container .row {
-    justify-content: left;
-}
-
-.container .card {
-    height:
-}
-
-.container .col .card-deck {
-    flex: 0 0 14.285%;
-    width: 14.285%;
-}
-
-.container .row .col .card:hover {
-    box-shadow: 0px 0px 20px white;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    margin: 0rem 18rem;
+.card-group .card:hover {
+    background-color: gray;
+    font-weight: bold;
 }
 
 .carousel-control-prev-icon,
