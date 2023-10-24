@@ -4,15 +4,13 @@
 
 body {
     font-family: sans-serif, Verdana, Geneva, Tahoma;
-    background-color: #141414;
-    color: #a3a3a3;
+    background-color: #A7D397;
+    color: #141414;
     margin-bottom: 100px;
 }
 
 /* color testing */
 .row {
-    border: 1px solid #CDF1BF;
-    /* background-color: gray; */
     border-radius: 30px;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -21,8 +19,8 @@ body {
 /* color testing */
 .col {
     margin-top: 1rem;
-    border: 1px solid #CDF1BF;
-    background-color: black;
+    border: 5px solid #141414;
+    background-color: white;
     border-radius: 30px;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -33,7 +31,7 @@ textarea {
 }
 
 h1 {
-    color: #CDF1BF;
+    color: #141414;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -64,8 +62,11 @@ input#address-filter {
     margin-left: 1rem;
 }
 
+header, footer, .nav {
+    background-color: white;
+}
+
 header {
-    background-color: #AFBC9A;
     color: black;
 }
 
@@ -74,7 +75,6 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #AFBC9A;
     text-align: center;
     color: black;
 }
@@ -89,7 +89,7 @@ footer a {
 
 .nav {
     text-align: center;
-    background-color: #AFBC9A;
+    /* background-color: #F5EEC8; */
 }
 
 .features {
@@ -129,8 +129,8 @@ h1.nav-item {
 
 .nav-item a:hover,
 footer a:hover {
-    color: white;
-    text-shadow: 1px 1px 10px black;
+    color: #141414;
+    text-shadow: 1px 1px 5px #141414;
 }
 
 li {
@@ -149,12 +149,12 @@ img {
 }
 
 .highlight:hover {
-    background-color: black;
+    background-color: #999999;
 }
 
 /* placeholder highlight for locator-interaction */
 .locator-highlight {
-    background-color: black;
+    background-color: #999999;
 }
 
 /* Used to hide text for smaller screens */
@@ -283,6 +283,11 @@ section.locator {
         width: 100%;
         table-layout: fixed;
     }
+    
+    .pharmacy-add a {
+        text-decoration: none;
+        color: black;
+    }
 }
 
 /* Desktop+ size */
@@ -356,7 +361,7 @@ th, td {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #198754;
     color: white;
     border: none;
     border-radius: 5px;
@@ -365,7 +370,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #157347;
 }
 
 #medicationName, #doseAmount {
