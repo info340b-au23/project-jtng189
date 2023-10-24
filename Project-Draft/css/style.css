@@ -1,26 +1,19 @@
+/* Global styling */
 * {
     box-sizing: border-box;
 }
 
 body {
+    /* Body styling */
     font-family: sans-serif, Verdana, Geneva, Tahoma;
     background-color: #A7D397;
     color: #141414;
     margin-bottom: 100px;
 }
 
+/* Common styling for .row and .col */
 /* color testing */
-.row {
-    border-radius: 30px;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-/* color testing */
-.col {
-    margin-top: 1rem;
-    border: 5px solid #141414;
-    background-color: white;
+.row, .col {
     border-radius: 30px;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -30,12 +23,14 @@ textarea {
     max-width: 100%;
 }
 
+/* Header styling */
 h1 {
     color: #141414;
     font-size: 1.5rem;
     text-align: center;
 }
 
+/* Subheadings styling */
 h2 {
     text-align: center;
     font-size: 1.25rem;
@@ -62,6 +57,7 @@ input#address-filter {
     margin-left: 1rem;
 }
 
+/* Header, footer, and .nav styling */
 header, footer, .nav {
     background-color: white;
 }
@@ -84,7 +80,7 @@ footer p {
 }
 
 footer a {
-    color: black;;
+    color: black;
 }
 
 .nav {
@@ -92,16 +88,8 @@ footer a {
     /* background-color: #F5EEC8; */
 }
 
-.features {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 1rem;
-    margin-left: 0;
-}
-
-.title {
+/* Styling for flex containers */
+.features, .title, .user {
     display: flex;
     flex: 1;
     justify-content: center;
@@ -109,12 +97,8 @@ footer a {
 }
 
 .user {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 1rem;
     margin-right: 0.5rem;
+    margin-top: 1rem;
 }
 
 nav {
@@ -127,12 +111,12 @@ h1.nav-item {
     text-align: center;
 }
 
-.nav-item a:hover,
-footer a:hover {
+.nav-item a:hover, footer a:hover {
     color: #141414;
     text-shadow: 1px 1px 5px #141414;
 }
 
+/* Styling for inline elements */
 li {
     display: inline;
 }
@@ -142,26 +126,28 @@ img {
     height: auto;
 }
 
-/* Used to center Google's material icons (may not work with all icons; adjust font size of text accordingly) */
+/* Styling for material icons */
 .material-icons {
     display: inline-flex;
     vertical-align: top;
 }
 
+/* Hover effect for elements with class .highlight */
 .highlight:hover {
     background-color: #999999;
 }
 
-/* placeholder highlight for locator-interaction */
+/* Highlight for locator interaction */
 .locator-highlight {
     background-color: #999999;
 }
 
-/* Used to hide text for smaller screens */
+/* Hide text for smaller screens */
 .item-hide {
     display: none;
 }
 
+/* Styling for pharmacy data */
 .pharmacy-data i {
     margin-bottom: 1rem;
     font-size: 2rem;
@@ -201,12 +187,11 @@ section.locator {
     padding: 0 1rem;
 }
 
-
 .container table {
     display: none;
 }
 
-/* Tablet size */
+/* Tablet size media query */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
     .item-hide {
@@ -226,6 +211,7 @@ section.locator {
         margin-left: 2.5rem;
         margin-right: 2.5rem;
     }
+
     h1 {
         font-size: 1.75rem;
     }
@@ -238,7 +224,7 @@ section.locator {
         font-size: 1.35rem;
     }
 
-    /* Navbar */
+    /* Navbar styling for tablet size */
     .nav {
         display: flex;
     }
@@ -283,14 +269,14 @@ section.locator {
         width: 100%;
         table-layout: fixed;
     }
-    
+
     .pharmacy-add a {
         text-decoration: none;
         color: black;
     }
 }
 
-/* Desktop+ size */
+/* Desktop+ size media query */
 @media (min-width: 992px) {
     .row {
         margin-left: 5rem;
@@ -327,16 +313,18 @@ section.locator {
     }
 }
 
+/* Styling for .card-group .card on hover */
 .card-group .card:hover {
     background-color: gray;
     font-weight: bold;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+/* Styling for carousel control icons */
+.carousel-control-prev-icon, .carousel-control-next-icon {
     color: black;
 }
 
+/* Styling for the .app-container */
 .app-container {
     background-color: #fff;
     padding: 20px;
@@ -345,6 +333,7 @@ section.locator {
     text-align: center;
 }
 
+/* Styling for tables */
 table {
     width: 100%;
     margin-top: 20px;
@@ -360,19 +349,8 @@ th, td {
     text-align: center;
 }
 
+/* Styling for buttons */
 button {
     background-color: #198754;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #157347;
-}
-
-#medicationName, #doseAmount {
-    padding: 5px;
-}
