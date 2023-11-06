@@ -191,6 +191,49 @@ section.locator {
     display: none;
 }
 
+/* Styling for .card-group .card on hover */
+.card-group .card:hover {
+    background-color: gray;
+    font-weight: bold;
+}
+
+/* Styling for carousel control icons */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    color: black;
+}
+
+/* Styling for the .app-container */
+.app-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Styling for tables */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #333;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Styling for buttons */
+button {
+    background-color: #198754;
+    color: white;
+    border: none;
+}
+
 /* Tablet size media query */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
@@ -312,45 +355,3 @@ section.locator {
         margin: 30%;
     }
 }
-
-/* Styling for .card-group .card on hover */
-.card-group .card:hover {
-    background-color: gray;
-    font-weight: bold;
-}
-
-/* Styling for carousel control icons */
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    color: black;
-}
-
-/* Styling for the .app-container */
-.app-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* Styling for tables */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #333;
-}
-
-th, td {
-    padding: 10px;
-    text-align: center;
-}
-
-/* Styling for buttons */
-button {
-    background-color: #198754;
-    color: white;
-    border: none;
