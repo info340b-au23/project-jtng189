@@ -1,4 +1,5 @@
 import React from "react";
+import EditNoteIcon from '@mui/icons-material/EditNote';
 
 // TO-DO:
 // Adjust "textarea" information to be respective
@@ -8,7 +9,7 @@ export function PharmacyNotes() {
         <div>
             <form>
                 <label for="pharNotes">
-                    <i className="material-icons" aria-label="Pharmacy Notes">note_alt</i>
+                    <i className="material-icons" aria-label="Pharmacy Notes"><EditNoteIcon /></i>
                     <span className="item-label">Notes</span>
                 </label><br></br>
                 <textarea className="form-control" id="pharNotes" name="pharNotes" rows="10">Available times: XX:XXpm-YY:YYpm Pharmacist's contact: ---------

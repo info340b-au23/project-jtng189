@@ -1,5 +1,6 @@
 import React from "react";
 
+import MenuIcon from '@mui/icons-material/Menu';
 
 // TO-DO:
 // Add mobile hamburger menu support
@@ -14,7 +15,7 @@ export function NavBar() {
                     <nav>
                         <ul>
                             <li className="mobile-show nav-item"><a id="nav-menu" href="tracker.html"><i
-                                className="material-icons">menu</i></a>
+                               className="material-icons" ><MenuIcon /></i></a>
                             </li>
                             <li className="item-hide nav-item"><a href="index.html">Locate</a></li>
                             <li className="item-hide nav-item"><a href="tracker.html">Medication List</a></li>

@@ -12,7 +12,7 @@ export function PharmacyAdd() {
                 <h3>Add Pharmacy:</h3>
                 <form>
                     <label for="pharName">Name:</label><br></br>
-                    <input type="text" id="pharName" name="pharName" placeholder="Pharmacy 4"></input><br></br>
+                    <input type="text" id="pharName" name="pharName" placeholder="Pharmacy X"></input><br></br>
                     <label for="pharAddress">Address:</label><br></br>
                     <input type="text" id="pharAddress" name="pharAddress" placeholder="12345 X 12th Street"></input><br></br>
                     <label for="pharPhoneNum">Phone Number:</label><br></br>
