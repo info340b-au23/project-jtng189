@@ -20,19 +20,28 @@ export function PharmacyAdd(props) {
         setPhoneNumber(event.target.value);
     }
 
-    console.log(props.list);
+    function onClickButton(event) {
+        event.preventDefault();
+        // Adds pharmacy
+        props.add(name, address, phoneNumber);
+        // Resets form input
+        setName('');
+        setAddress('');
+        setPhoneNumber('');
+    }
+
     return (
         <div className="pharmacy-add col col-sm-12 col-md-8 col-lg-6 mx-auto">
             <section className="locator">
                 <h3>Add Pharmacy:</h3>
                 <form>
                     <label htmlFor="pharName">Name:</label><br></br>
-                    <input type="text" id="pharName" name="pharName" placeholder="Pharmacy X" onChange={getName}></input><br></br>
+                    <input type="text" id="pharName" name="pharName" placeholder="Pharmacy X" value={name} onChange={getName}></input><br></br>
                     <label htmlFor="pharAddress">Address:</label><br></br>
-                    <input type="text" id="pharAddress" name="pharAddress" placeholder="12345 X 12th Street" onChange={getAddress}></input><br></br>
+                    <input type="text" id="pharAddress" name="pharAddress" placeholder="12345 X 12th Street" value={address} onChange={getAddress}></input><br></br>
                     <label htmlFor="pharPhoneNum">Phone Number:</label><br></br>
-                    <input type="text" id="pharPhoneNum" name="pharPhoneNum" placeholder="123-456-7890" onChange={getPhoneNumber}></input><br></br>
-                    <button type="submit" id="pharAdd" aria-label="Add Pharmacy" onClick={() => { props.add(name, address, phoneNumber) }}>Add</button>
+                    <input type="text" id="pharPhoneNum" name="pharPhoneNum" placeholder="123-456-7890" value={phoneNumber} onChange={getPhoneNumber}></input><br></br>
+                    <button type="submit" id="pharAdd" aria-label="Add Pharmacy" onClick={onClickButton}>Add</button>
                 </form>
             </section>
         </div>

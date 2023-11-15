@@ -7,8 +7,8 @@ export function PharmacyCard() {
     return (
         <div className="card">
             <div className="card-body">
-                <input type="radio" id="pharmacy4" name="pharmacy"></input>
-                <label htmlFor="pharmacy4">Pharmacy 4</label>
+                <input type="radio" id="pharmacyRadio" name="pharmacyRadio"></input>
+                <label htmlFor="pharmacyRadio">Pharmacy 4</label>
             </div>
         </div>
     );

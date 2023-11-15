@@ -5,11 +5,13 @@ import { PharmacyInformation } from "./PharmacyInformation";
 import { PharmacyAdd } from "./PharmacyAdd";
 
 export function Locator() {
-    const [pharmacyArray, setPharmacyArray] = useState([]);
+    const [pharmacyArray, setPharmacyArray] = useState([
+    ]);
 
     // creates a pharmacy
     const createPharmacy = (pharmacyName, pharmacyAddress, pharmacyNumber) => {
-        setPharmacyArray([{
+        setPharmacyArray([...pharmacyArray,
+        {
             name: pharmacyName,
             address: pharmacyAddress,
             phoneNumber: pharmacyNumber,
@@ -17,6 +19,7 @@ export function Locator() {
         }]);
     }
 
+    console.log(pharmacyArray);
     return (
         <div>
             <h2 className="text-center">Pharmacy Locator</h2>
