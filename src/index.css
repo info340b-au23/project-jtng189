@@ -53,8 +53,9 @@ label.filter-spacing {
 }
 
 input#name-filter,
-input#address-filter {
-    margin-left: 1rem;
+input#address-filter,
+input#pharmacyRadio {
+    margin-right: 0.5rem;
 }
 
 /* Header, footer, and .nav styling */
