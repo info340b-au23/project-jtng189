@@ -1,14 +1,13 @@
 import React from "react";
-import { PharmacyAdd } from "./PharmacyAdd";
 
 // TO-DO:
 // Make "id", "name", "for", and label name respective
-export function PharmacyCard() {
+export function PharmacyCard(props) {
     return (
         <div className="card">
             <div className="card-body">
                 <input type="radio" id="pharmacyRadio" name="pharmacyRadio"></input>
-                <label htmlFor="pharmacyRadio">Pharmacy 4</label>
+                <label htmlFor="pharmacyRadio">{props.name}</label>
             </div>
         </div>
     );

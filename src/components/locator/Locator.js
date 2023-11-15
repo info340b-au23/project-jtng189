@@ -25,7 +25,7 @@ export function Locator() {
             <h2 className="text-center">Pharmacy Locator</h2>
             {/* First row includes Pharmacy List, Map, Information */}
             <div className="row">
-                <PharmacyList />
+                <PharmacyList list={pharmacyArray} />
                 <PharmacyMap />
                 <PharmacyInformation />
             </div>

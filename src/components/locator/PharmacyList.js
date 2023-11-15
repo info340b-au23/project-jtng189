@@ -6,7 +6,15 @@ import { PharmacyCard } from "./PharmacyCard";
 // TO-DO
 // Take user input of "search", "name" OR "address" filters
 // Show only matching pharmacies in the list
-export function PharmacyList() {
+export function PharmacyList(props) {
+    const pharmacyArray = props.list;
+
+    const pharmacyCardArray = pharmacyArray.map((pharmacy) => {
+        return (
+            <PharmacyCard name={pharmacy.name} />
+        );
+    });
+
     return (
         <div className="pharmacy-list col col-sm col-md col-lg">
             <section className="locator">
@@ -19,7 +27,7 @@ export function PharmacyList() {
                 <label className="filter-spacing" htmlFor="address-filter">Address</label>
                 {/* Replace below card with component */}
                 {/* This should render an array of all the corresponding pharmacies */}
-                <PharmacyCard />
+                {pharmacyCardArray}
             </section>
         </div>
     );
