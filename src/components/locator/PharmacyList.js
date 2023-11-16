@@ -11,7 +11,7 @@ export function PharmacyList(props) {
 
     const pharmacyCardArray = pharmacyArray.map((pharmacy) => {
         return (
-            <PharmacyCard name={pharmacy.name} />
+            <PharmacyCard name={pharmacy.name} address={pharmacy.address} selectPharmacy={props.selectPharmacy} key={pharmacy.key}/>
         );
     });
 

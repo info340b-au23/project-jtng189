@@ -5,8 +5,14 @@ import { PharmacyInformation } from "./PharmacyInformation";
 import { PharmacyAdd } from "./PharmacyAdd";
 
 export function Locator() {
-    const [pharmacyArray, setPharmacyArray] = useState([
-    ]);
+    const [pharmacyArray, setPharmacyArray] = useState([]);
+    const [selectedPharmacy, setSelectedPharmacy] = useState({});
+
+    // creates a unique key
+    const pharmacyKey = (pharmacyName) => {
+        const pharmacySize = pharmacyArray.length;
+        return (pharmacyName + pharmacySize);
+    }
 
     // creates a pharmacy
     const createPharmacy = (pharmacyName, pharmacyAddress, pharmacyNumber) => {
@@ -15,19 +21,30 @@ export function Locator() {
             name: pharmacyName,
             address: pharmacyAddress,
             phoneNumber: pharmacyNumber,
-            id: pharmacyName
+            key: pharmacyKey(pharmacyName)
         }]);
     }
 
+    // Finds the selected pharmacy card in the array
+    const selectPharmacy = (pharmacyName, pharmacyAddress) => {
+        const pharmacy = pharmacyArray.filter((pharmacy) => {
+            if (pharmacy.name === pharmacyName && pharmacy.address === pharmacyAddress) {
+                return pharmacy;
+            }
+        })
+        setSelectedPharmacy(pharmacy.pop());
+    }
+
     console.log(pharmacyArray);
+    console.log(selectedPharmacy);
     return (
         <div>
             <h2 className="text-center">Pharmacy Locator</h2>
             {/* First row includes Pharmacy List, Map, Information */}
             <div className="row">
-                <PharmacyList list={pharmacyArray} />
+                <PharmacyList list={pharmacyArray} selectPharmacy={selectPharmacy} />
                 <PharmacyMap />
-                <PharmacyInformation />
+                <PharmacyInformation pharmacy={selectedPharmacy} />
             </div>
             {/* Second row includes Input function */}
             <div className="row">

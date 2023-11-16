@@ -16,7 +16,7 @@ export function PharmacyNotes() {
                 </textarea><br></br>
                 <button type="submit" aria-label="Save pharmacy information and notes">Save</button>
                 {/* !!! Maybe no need for "edit" button */}
-                <button type="submit" aria-label="Edit pharmacy information and notes">Edit</button>
+                {/* <button type="submit" aria-label="Edit pharmacy information and notes">Edit</button> */}
                 <button type="submit" aria-label="Delete pharmacy from list">Delete</button>
             </form>
         </div>
