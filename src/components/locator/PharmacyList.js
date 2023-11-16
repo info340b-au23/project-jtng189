@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ListIcon from '@mui/icons-material/List';
 import SearchIcon from '@mui/icons-material/Search';
 import { PharmacyCard } from "./PharmacyCard";
@@ -7,11 +7,14 @@ import { PharmacyCard } from "./PharmacyCard";
 // Take user input of "search", "name" OR "address" filters
 // Show only matching pharmacies in the list
 export function PharmacyList(props) {
+    // checkRadioButton
+    const [active, setActive] = useState('false');
     const pharmacyArray = props.list;
 
     const pharmacyCardArray = pharmacyArray.map((pharmacy) => {
         return (
-            <PharmacyCard name={pharmacy.name} address={pharmacy.address} selectPharmacy={props.selectPharmacy} key={pharmacy.key}/>
+            <PharmacyCard name={pharmacy.name} address={pharmacy.address} selectPharmacy={props.selectPharmacy}
+             key={pharmacy.key}/>
         );
     });
 
