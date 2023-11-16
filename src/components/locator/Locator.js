@@ -21,6 +21,7 @@ export function Locator() {
             name: pharmacyName,
             address: pharmacyAddress,
             phoneNumber: pharmacyNumber,
+            note: "",
             key: pharmacyKey(pharmacyName)
         }]);
     }
@@ -28,10 +29,8 @@ export function Locator() {
     // Finds the selected pharmacy card in the array
     const selectPharmacy = (pharmacyName, pharmacyAddress) => {
         const pharmacy = pharmacyArray.filter((pharmacy) => {
-            if (pharmacy.name === pharmacyName && pharmacy.address === pharmacyAddress) {
-                return pharmacy;
-            }
-        })
+            return (pharmacy.name === pharmacyName && pharmacy.address === pharmacyAddress);
+            })
         setSelectedPharmacy(pharmacy.pop());
     }
 

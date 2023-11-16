@@ -235,6 +235,10 @@ button {
     border: none;
 }
 
+button.delete {
+    background-color: red;
+}
+
 /* Tablet size media query */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
