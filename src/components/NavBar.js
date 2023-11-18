@@ -31,7 +31,7 @@ export function NavBar() {
                         <ul className="nav-item">
                             <li className="item-hide nav-item"><a href="#">Username</a></li>
                             <li className="nav-item"><a href="#">
-                                <img src="Project-Draft/img/profile-pic.png" alt="User profile picture"></img>
+                                <img src={process.env.PUBLIC_URL + "/img/profile-pic.png"} alt="User profile picture"></img>
                             </a>
                             </li>
                         </ul>
