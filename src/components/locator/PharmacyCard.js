@@ -24,37 +24,3 @@ export function PharmacyCard(props) {
         </div>
     );
 }
-
-// // TO-DO:
-// // Make "id", "name", "for", and label name respective
-// // set "checked" interaction
-// export function PharmacyCard(props) {
-//     const pharmacyName = props.pharmacy.name;
-//     const pharmacyAddress = props.pharmacy.address;
-
-//     // function onClickRadio(event) {
-//     //     event.preventDefault();
-
-//     //     props.selectPharmacy(pharmacyName, pharmacyAddress);
-//     //     // setCheckRadio(!checkRadio);
-//     // }
-    
-//     return (
-//         <div className="card">
-//             <div className="card-body">
-//                 <input 
-//                     name="pharmacyRadio" 
-//                     type="radio" 
-//                     value={pharmacyName}
-//                     checked={props.checked} 
-//                     onChange={(e) => {
-//                         props.selectPharmacy(pharmacyName, pharmacyAddress)
-//                     }} 
-//                 />
-//                 <label htmlFor="pharmacyRadio">{pharmacyName}</label>
-//                 <br/>
-//                 <span>{pharmacyAddress}</span>
-//             </div>
-//         </div>
-//     );
-// }
