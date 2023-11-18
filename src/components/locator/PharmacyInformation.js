@@ -9,15 +9,17 @@ import { PharmacyNotes } from "./PharmacyNotes";
 // Adjust "textbox value" for PharmacyNotes (done in its component)
 export function PharmacyInformation(props) {
     const pharmacy = props.pharmacy;
-    
+
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+
     // Sets the initial values of useStates to selected pharmacy
     useEffect(() => {
         setAddress(pharmacy.address || ''); 
         setPhoneNumber(pharmacy.phoneNumber || '');
+        setName(pharmacy.name || '');
     }, [pharmacy]);
-
-    const [address, setAddress] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
 
     const addressChange = (event) => {
         setAddress(event.target.value);
@@ -26,16 +28,31 @@ export function PharmacyInformation(props) {
         setPhoneNumber(event.target.value);
     }
 
+    const newPharmacy = {...pharmacy,
+        name: name,
+        address: address,
+        phoneNumber: phoneNumber
+    }
+
+    const deleteInformation = (pharmacy, pharmacyList) => {
+        props.delete(pharmacy, pharmacyList);
+        setName('');
+        setAddress('');
+        setPhoneNumber('');
+    };
+
     // Test Code
 
-    // console.log(pharmacy);
+    // console.log("This is the pharmacy spotted in PharmacyInformation:" +pharmacy);
+    // console.log(newPharmacy);
+    // console.log(name);
     // console.log("State Variables: " + address + " " + phoneNumber);
     // console.log("Pharmacy Variables: " + pharmacy.address + " " + pharmacy.phoneNumber);
-    
+
     return (
         <div className="pharmacy-data col col-sm col-md col-lg">
             <section className="locator">
-                <h3>{"Data Information: " + pharmacy.name}</h3>
+                <h3>{"Data Information: " + name}</h3>
                 <div className="card">
                     <div className="card-body">
                         <div>
@@ -54,7 +71,7 @@ export function PharmacyInformation(props) {
                             ></input></span>
                         </div>
 
-                        <PharmacyNotes pharmacy={pharmacy} />
+                        <PharmacyNotes pharmacy={pharmacy} newPharmacy={newPharmacy} edit={props.edit} delete={deleteInformation} list={props.list} />
                     </div>
                 </div>
             </section>

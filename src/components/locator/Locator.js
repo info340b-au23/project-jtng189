@@ -34,8 +34,27 @@ export function Locator() {
         setSelectedPharmacy(pharmacy.pop());
     }
 
+    const editPharmacy = (newPharmacy, pharmacyList) => {
+        const newList = pharmacyList.map((pharmacy) => {
+            if (pharmacy.name === newPharmacy.name) {
+                pharmacy = newPharmacy;
+            }
+            return pharmacy;
+        });
+        setPharmacyArray(newList);
+
+        setSelectedPharmacy(newPharmacy);
+    }
+
+    const deletePharmacy = (currentPharmacy, pharmacyList) => {
+        setPharmacyArray(pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
+    }
+
+    // Test Code
+   
     console.log(pharmacyArray);
-    console.log(selectedPharmacy);
+    // console.log(selectedPharmacy);
+
     return (
         <div>
             <h2 className="text-center">Pharmacy Locator</h2>
@@ -43,7 +62,7 @@ export function Locator() {
             <div className="row">
                 <PharmacyList list={pharmacyArray} selectPharmacy={selectPharmacy} />
                 <PharmacyMap />
-                <PharmacyInformation pharmacy={selectedPharmacy} />
+                <PharmacyInformation list={pharmacyArray} pharmacy={selectedPharmacy} edit={editPharmacy} delete={deletePharmacy} />
             </div>
             {/* Second row includes Input function */}
             <div className="row">
