@@ -4,23 +4,19 @@ import React, { useState } from "react";
 // Make "id", "name", "for", and label name respective
 // set "checked" interaction
 export function PharmacyCard(props) {
-    // const [checkRadio, setCheckRadio] = useState(false);
 
-    const pharmacyName = props.name;
-    const pharmacyAddress = props.address;
+    const pharmacyName = props.pharmacy.name;
+    const pharmacyAddress = props.pharmacy.address;
     const cardKey = pharmacyName+pharmacyAddress;
 
-    function onClickRadio(event) {
-        event.preventDefault();
-
+    function onChangeRadio() {
         props.selectPharmacy(pharmacyName, pharmacyAddress);
-        // setCheckRadio(!checkRadio);
     }
-    
+
     return (
-        <div className="card" id={cardKey + cardKey.length}>
+        <div className="card" key={cardKey}>
             <div className="card-body">
-                <input type="radio" id="pharmacyRadio" name="pharmacyRadio" onClick={onClickRadio}></input>
+                <input type="radio" id="pharmacyRadio" name="pharmacyRadio" onChange={onChangeRadio} checked={props.checked}></input>
                 <label htmlFor="pharmacyRadio">{pharmacyName}</label>
                 <br></br>
                 <span>{pharmacyAddress}</span>
@@ -28,3 +24,37 @@ export function PharmacyCard(props) {
         </div>
     );
 }
+
+// // TO-DO:
+// // Make "id", "name", "for", and label name respective
+// // set "checked" interaction
+// export function PharmacyCard(props) {
+//     const pharmacyName = props.pharmacy.name;
+//     const pharmacyAddress = props.pharmacy.address;
+
+//     // function onClickRadio(event) {
+//     //     event.preventDefault();
+
+//     //     props.selectPharmacy(pharmacyName, pharmacyAddress);
+//     //     // setCheckRadio(!checkRadio);
+//     // }
+    
+//     return (
+//         <div className="card">
+//             <div className="card-body">
+//                 <input 
+//                     name="pharmacyRadio" 
+//                     type="radio" 
+//                     value={pharmacyName}
+//                     checked={props.checked} 
+//                     onChange={(e) => {
+//                         props.selectPharmacy(pharmacyName, pharmacyAddress)
+//                     }} 
+//                 />
+//                 <label htmlFor="pharmacyRadio">{pharmacyName}</label>
+//                 <br/>
+//                 <span>{pharmacyAddress}</span>
+//             </div>
+//         </div>
+//     );
+// }

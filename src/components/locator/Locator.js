@@ -60,7 +60,7 @@ export function Locator() {
             <h2 className="text-center">Pharmacy Locator</h2>
             {/* First row includes Pharmacy List, Map, Information */}
             <div className="row">
-                <PharmacyList list={pharmacyArray} selectPharmacy={selectPharmacy} />
+                <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
                 <PharmacyMap />
                 <PharmacyInformation list={pharmacyArray} pharmacy={selectedPharmacy} edit={editPharmacy} delete={deletePharmacy} />
             </div>

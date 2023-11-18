@@ -8,13 +8,16 @@ import { PharmacyCard } from "./PharmacyCard";
 // Show only matching pharmacies in the list
 export function PharmacyList(props) {
     // checkRadioButton
-    const [active, setActive] = useState('false');
     const pharmacyArray = props.list;
 
     const pharmacyCardArray = pharmacyArray.map((pharmacy) => {
         return (
-            <PharmacyCard name={pharmacy.name} address={pharmacy.address} selectPharmacy={props.selectPharmacy}
-             key={pharmacy.key}/>
+            <PharmacyCard
+                pharmacy={pharmacy}
+                selectPharmacy={props.selectPharmacy}
+                key={pharmacy.key}
+                checked={props.selectedPharmacy.name === pharmacy.name}
+            />
         );
     });
 
