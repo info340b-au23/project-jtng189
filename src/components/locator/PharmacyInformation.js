@@ -60,14 +60,14 @@ export function PharmacyInformation(props) {
                                 href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
                                 <i className="material-icons" aria-label="Pharmacy location"><HomeIcon /></i>
                             </a>
-                            <span className="item-hide">Location: <input type="text" id="location" name="location" onChange={addressChange} value={address}
+                            <span >Location: <input type="text" id="location" name="location" onChange={addressChange} value={address}
                             ></input> </span>
                         </div>
                         <div>
                             <a style={{ textDecoration: 'none' }} href="tel:123-456-7890">
                                 <i className="material-icons" aria-label="Call Pharmacy Phone Number"><CallIcon /></i>
                             </a>
-                            <span className="item-hide">Number (#): <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
+                            <span >Number (#): <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
                             ></input></span>
                         </div>
 
