@@ -64,7 +64,7 @@ export function PharmacyInformation(props) {
                             ></input> </span>
                         </div>
                         <div>
-                            <a style={{ textDecoration: 'none' }} href="tel:123-456-7890">
+                            <a style={{ textDecoration: 'none' }} href={"tel:" + phoneNumber}>
                                 <i className="material-icons" aria-label="Call Pharmacy Phone Number"><CallIcon /></i>
                             </a>
                             <span >Number (#): <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
