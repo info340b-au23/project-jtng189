@@ -235,6 +235,10 @@ button {
     border: none;
 }
 
+.formError {
+    color: red;
+}
+
 button.delete {
     background-color: red;
 }

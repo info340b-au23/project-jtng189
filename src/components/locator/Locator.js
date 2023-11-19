@@ -66,7 +66,7 @@ export function Locator() {
             </div>
             {/* Second row includes Input function */}
             <div className="row">
-                <PharmacyAdd add={createPharmacy} />
+                <PharmacyAdd add={createPharmacy} list={pharmacyArray} />
             </div>
         </div>
     );
