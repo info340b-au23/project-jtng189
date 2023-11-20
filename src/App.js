@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { Locator } from "./components/locator/Locator";
@@ -9,8 +10,13 @@ export default function App() {
     return (
         <div>
             <NavBar />
-            <Locator />
-            {/* <Calendar /> */}
+            {/* <Routes>
+                <Route path="/locator" element={<Locator />} />
+                <Route path="/calendar" element={<Calendar />} />
+                {/* <Route path="/locator" element={<Locator />} /> */
+            /* </Routes> */}
+            {/* <Locator /> */}
+            <Calendar />
             <Footer />
         </div>
     );
