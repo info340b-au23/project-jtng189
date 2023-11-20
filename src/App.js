@@ -9,7 +9,7 @@ export default function App() {
     return (
         <div>
             <NavBar />
-            <Calendar />
+            <Locator />
             <Footer />
         </div>
     );
