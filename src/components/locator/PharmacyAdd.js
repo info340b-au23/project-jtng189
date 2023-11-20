@@ -15,12 +15,10 @@ export function PharmacyAdd(props) {
 
     const getName = (event) => {
         setName(event.target.value);
-        // setNameError("");
     }
 
     const getAddress = (event) => {
         setAddress(event.target.value);
-        // setAddressError("");
     }
 
     const getPhoneNumber = (event) => {

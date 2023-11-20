@@ -6,7 +6,7 @@ import { PharmacyAdd } from "./PharmacyAdd";
 
 export function Locator() {
     const [pharmacyArray, setPharmacyArray] = useState([]);
-    const [selectedPharmacy, setSelectedPharmacy] = useState({});
+    const [selectedPharmacy, setSelectedPharmacy] = useState({name : ""});
 
     // creates a unique key
     const pharmacyKey = (pharmacyName) => {
@@ -48,12 +48,14 @@ export function Locator() {
 
     const deletePharmacy = (currentPharmacy, pharmacyList) => {
         setPharmacyArray(pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
+        setSelectedPharmacy({name: ""})
     }
+
 
     // Test Code
    
-    console.log(pharmacyArray);
-    // console.log(selectedPharmacy);
+    // console.log(pharmacyArray);
+    console.log(selectedPharmacy);
 
     return (
         <div>
@@ -61,7 +63,7 @@ export function Locator() {
             {/* First row includes Pharmacy List, Map, Information */}
             <div className="row">
                 <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
-                <PharmacyMap />
+                <PharmacyMap pharmacy={selectedPharmacy} />
                 <PharmacyInformation list={pharmacyArray} pharmacy={selectedPharmacy} edit={editPharmacy} delete={deletePharmacy} />
             </div>
             {/* Second row includes Input function */}
