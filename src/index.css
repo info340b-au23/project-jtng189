@@ -45,17 +45,23 @@ h2,
 h3,
 label {
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 label.filter-spacing {
     margin-right: 1rem;
 }
 
+label.addForm {
+    margin-bottom: 0;
+}
+
 input#name-filter,
 input#address-filter,
 input#pharmacyRadio {
     margin-right: 0.5rem;
+    height: 1rem;
+    width: 1rem;
 }
 
 /* Header, footer, and .nav styling */

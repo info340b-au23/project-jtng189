@@ -64,10 +64,10 @@ export function PharmacyAdd(props) {
                 <div className="card">
                     <div className="card-body">
                         <form>
-                            <label htmlFor="pharName">Name:</label><br />
+                            <label className="addForm" htmlFor="pharName">Name:</label><br />
                             <span className="formError">{nameError}</span><br />
                             <input type="text" id="pharName" name="pharName" placeholder="Pharmacy X" value={name} onChange={getName}></input><br />
-                            <label htmlFor="pharAddress">Address:</label><br />
+                            <label className="addForm" htmlFor="pharAddress">Address:</label><br />
                             <span className="formError">{addressError}</span><br />
                             <input type="text" id="pharAddress" name="pharAddress" placeholder="12345 X 12th Street" value={address} onChange={getAddress}></input><br />
                             <label htmlFor="pharPhoneNum">Phone Number:</label><br />

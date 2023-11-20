@@ -57,7 +57,7 @@ export function PharmacyInformation(props) {
                     <div className="card-body">
                         <div>
                             <a style={{ textDecoration: 'none' }}
-                                href="https://www.google.com/maps/search/12345+X+12th+Street,+City,+State+56789/@47.6219654,-122.3686268,14z/data=!3m1!4b1?entry=ttu">
+                                href={"https://maps.google.com/?q=" + address}>
                                 <i className="material-icons" aria-label="Pharmacy location"><HomeIcon /></i>
                             </a>
                             <span >Location: <input type="text" id="location" name="location" onChange={addressChange} value={address}
