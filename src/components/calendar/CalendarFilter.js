@@ -20,13 +20,13 @@ export function CalendarFilter(props) {
     return (
         <div className = "d-flex">
             <div className = "col-auto">
+                <i className="material-icons"><SearchIcon /></i>
+                <input type = "text" value = {searchFilter} onChange = {searchHandler} placeholder = "Find event"/>
+            </div>
+            <div className = "ms-auto">
                 <select id = "view" className = "form-select" value = {calendarView} onChange = {selectChange}>
                     {views}
                 </select>
-            </div>
-            <div className = "ms-auto">
-                <i className="material-icons"><SearchIcon /></i>
-                <input type = "text" value = {searchFilter} onChange = {searchHandler} placeholder = "Find event"/>
             </div>
         </div>
     )

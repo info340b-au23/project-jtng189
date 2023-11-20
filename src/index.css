@@ -169,6 +169,18 @@ section.locator {
     text-align: center;
 }
 
+div.mobile-nav {
+    display: block;
+    position: absolute;
+    text-align: left;
+}
+
+.mobile-nav div {
+    background-color: white;
+    min-width: 120px;
+    padding: 10px;
+}
+
 .pharmacy-list div.card-body {
     padding: 0.25rem;
 }

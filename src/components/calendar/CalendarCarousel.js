@@ -27,7 +27,7 @@ export function CalendarCarousel(props) {
 
     return (
         <div>
-            <Carousel indicators = {false} prevLabel = "" nextLabel = "" interval = {null}>
+            <Carousel indicators = {false} prevLabel = "" nextLabel = "" interval = {null} slide = {false}>
                 {carouselItems}
             </Carousel>
         </div>
