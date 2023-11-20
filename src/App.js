@@ -10,13 +10,12 @@ export default function App() {
     return (
         <div>
             <NavBar />
-            {/* <Routes>
-                <Route path="/locator" element={<Locator />} />
-                <Route path="/calendar" element={<Calendar />} />
-                {/* <Route path="/locator" element={<Locator />} /> */
-            /* </Routes> */}
-            {/* <Locator /> */}
-            <Calendar />
+            <Routes>
+                <Route index element={<Locator />} />
+                <Route path="locator" element={<Locator />} />
+                <Route path="calendar" element={<Calendar />} />
+                {/* <Route path="tracker" element={<Locator />} /> */}
+            </Routes>
             <Footer />
         </div>
     );

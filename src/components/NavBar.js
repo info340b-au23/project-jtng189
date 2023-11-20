@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close'; 
+import CloseIcon from '@mui/icons-material/Close';
+import { Link } from "react-router-dom";
 
 // TO-DO:
 // Add mobile hamburger menu support
@@ -11,9 +12,9 @@ import CloseIcon from '@mui/icons-material/Close';
 export function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const navPages = [
-        {href: "index.html", name: "Locate"},
-        {href: "tracker.html", name: "Medication List"},
-        {href: "calendar.html", name: "Calendar"},
+        { to: "locator", name: "Locate" },
+        { to: "tracker", name: "Medication List" },
+        { to: "calendar", name: "Calendar" },
     ];
 
     function toggleMenu(event) {
@@ -23,9 +24,9 @@ export function NavBar() {
 
     function toggleIcon() {
         if (!menuOpen) {
-            return <MenuIcon/>;
+            return <MenuIcon />;
         }
-        return <CloseIcon/>;
+        return <CloseIcon />;
     }
 
     function menuItems() {
@@ -33,7 +34,9 @@ export function NavBar() {
             return (
                 <div className="mobile-nav">
                     {navPages.map(page => (
-                        <div className="mobile-show nav-item"><a href={page.href}>{page.name}</a></div>
+                        <div className="mobile-show nav-item">
+                            <Link to={page.to}>{page.name}</Link>
+                        </div>
                     ))}
                 </div>
             )
@@ -47,11 +50,18 @@ export function NavBar() {
                     <nav>
                         <ul>
                             <li className="mobile-show nav-item"><a id="nav-menu" href="tracker.html" onClick={toggleMenu}><i
-                               className="material-icons" >{toggleIcon()}</i></a>
+                                className="material-icons" >{toggleIcon()}</i></a>
                             </li>
-                            <li className="item-hide nav-item"><a href="index.html">Locate</a></li>
-                            <li className="item-hide nav-item"><a href="tracker.html">Medication List</a></li>
-                            <li className="item-hide nav-item"><a href="calendar.html">Calendar</a></li>
+                            <li className="item-hide nav-item">
+                                <Link to="locator">Locate</Link>
+                            </li>
+                            <li className="item-hide nav-item">
+                                <Link to="tracker">Medication List</Link>
+                            </li>
+                            <li className="item-hide nav-item">
+                                {/* <a href="calendar.html">Calendar</a> */}
+                                <Link to="calendar">Calendar</Link>
+                            </li>
                         </ul>
                         {menuItems()}
                     </nav>
