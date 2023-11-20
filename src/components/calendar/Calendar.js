@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import { CalendarCarousel } from './CalendarCarousel';
 import { Week } from './Week';
+import { CalendarFilter } from './CalendarFilter';
 
 export function Calendar(props) {
     return (
         <div>
             <h2>Calendar</h2>
             <div className="container" id="calendar">
-                <p className="ml-3">Click a day to add tasks to your calendar</p>
+                <p className="ml-3">Click a day to add events to your calendar</p>
+                    <CalendarFilter/>
                 <h3 className="bg-dark text-light p-3 text-center text-center">
                     <CalendarCarousel/>
-
                 </h3>
                 <table>
                     <thead>
