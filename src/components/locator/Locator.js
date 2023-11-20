@@ -55,7 +55,7 @@ export function Locator() {
     // Test Code
    
     // console.log(pharmacyArray);
-    console.log(selectedPharmacy);
+    // console.log(selectedPharmacy);
 
     return (
         <div>

@@ -13,7 +13,6 @@ export function PharmacyMap(props) {
     const [name, setName] = useState("");
 
     useEffect(() => {
-        console.log(props.pharmacy);
         setName(props.pharmacy.name || "");
     }, [props.pharmacy]);
     
