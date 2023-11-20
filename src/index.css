@@ -243,6 +243,10 @@ button.delete {
     background-color: red;
 }
 
+.card.map {
+    height: 200px;
+}
+
 /* Tablet size media query */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
@@ -361,7 +365,6 @@ button.delete {
     }
 
     .card.map {
-        /* margin: 30%; */
-        height: 400px;
+        height: 500px;
     }
 }
