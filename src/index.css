@@ -361,6 +361,7 @@ button.delete {
     }
 
     .card.map {
-        margin: 30%;
+        /* margin: 30%; */
+        height: 400px;
     }
 }
