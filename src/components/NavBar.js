@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // TO-DO:
 // Add mobile hamburger menu support
@@ -35,7 +35,7 @@ export function NavBar() {
                 <div className="mobile-nav">
                     {navPages.map(page => (
                         <div className="mobile-show nav-item">
-                            <Link to={page.to}>{page.name}</Link>
+                            <NavLink to={page.to}>{page.name}</NavLink>
                         </div>
                     ))}
                 </div>
@@ -53,14 +53,14 @@ export function NavBar() {
                                 className="material-icons" >{toggleIcon()}</i></a>
                             </li>
                             <li className="item-hide nav-item">
-                                <Link to="locator">Locate</Link>
+                                <NavLink to="locator">Locate</NavLink>
                             </li>
                             <li className="item-hide nav-item">
-                                <Link to="tracker">Medication List</Link>
+                                <NavLink to="tracker">Medication List</NavLink>
                             </li>
                             <li className="item-hide nav-item">
                                 {/* <a href="calendar.html">Calendar</a> */}
-                                <Link to="calendar">Calendar</Link>
+                                <NavLink to="calendar">Calendar</NavLink>
                             </li>
                         </ul>
                         {menuItems()}
