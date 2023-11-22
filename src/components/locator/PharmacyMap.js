@@ -3,11 +3,11 @@ import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 import { Loader } from "@googlemaps/js-api-loader";
 
 // *Import file & assign key when firebase deploying
-// NOTE TO GRADER: Use Firebase Deployment to test functionality of map
+// NOTE TO GRADER: Use Firebase website to test functionality of map
 
 // import SECRETS from "./secrets.json"
-
 // const API_KEY = SECRETS.API_KEY
+
 const API_KEY = '';
 
 export function PharmacyMap(props) {
