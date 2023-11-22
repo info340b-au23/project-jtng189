@@ -6,13 +6,13 @@ export function PharmacyMap(props) {
     const [name, setName] = useState("");
     const [location, setLocation] = useState({ lat: 47.65485149091028, lng: -122.30749748366422 });
 
-    const loader = new Loader({
-        apiKey: "AIzaSyBldM_80zD9zC5x7Bm7RBybvxtpFl3XYO0",
-        version: "weekly",
-        libraries: ["geocoding"]
-    })
-
+    
     useEffect(() => {
+        const loader = new Loader({
+            apiKey: "AIzaSyBldM_80zD9zC5x7Bm7RBybvxtpFl3XYO0",
+            version: "weekly",
+            libraries: ["geocoding"]
+        })
         loader.importLibrary('geocoding').then(() => {
             const geocoder = new window.google.maps.Geocoder();
 
@@ -28,7 +28,7 @@ export function PharmacyMap(props) {
             }
             );
         });
-    }, [props.pharmacy.address, loader]);
+    }, [props.pharmacy.address]);
 
     useEffect(() => {
         setName(props.pharmacy.name || "");
