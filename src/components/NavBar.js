@@ -54,7 +54,6 @@ export function NavBar() {
                                 <NavLink to="tracker">Medication List</NavLink>
                             </li>
                             <li className="item-hide nav-item">
-                                {/* <a href="calendar.html">Calendar</a> */}
                                 <NavLink to="calendar">Calendar</NavLink>
                             </li>
                         </ul>
