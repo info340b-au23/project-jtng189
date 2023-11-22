@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { Locator } from "./components/locator/Locator";
 import { Calendar } from "./components/calendar/Calendar";
+import  MedicationTable from "./components/tracker/MedicationTable";
 
 export default function App() {
     return (
@@ -14,7 +15,7 @@ export default function App() {
                 <Route index element={<Locator />} />
                 <Route path="locator" element={<Locator />} />
                 <Route path="calendar" element={<Calendar />} />
-                {/* <Route path="tracker" element={<Locator />} /> */}
+                <Route path="tracker" element={<MedicationTable />} />
             </Routes>
             <Footer />
         </div>
