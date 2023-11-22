@@ -4,11 +4,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { NavLink } from "react-router-dom";
 
-// TO-DO:
-// Add mobile hamburger menu support
-// Set links to swap to the correct pages "href"
-// Set proper profile picture "src" link/ allow submission for picture
-
 export function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const navPages = [

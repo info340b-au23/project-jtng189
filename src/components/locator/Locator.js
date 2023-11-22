@@ -51,22 +51,14 @@ export function Locator() {
         setSelectedPharmacy({name: ""})
     }
 
-
-    // Test Code
-   
-    // console.log(pharmacyArray);
-    // console.log(selectedPharmacy);
-
     return (
         <div>
             <h2 className="text-center">Pharmacy Locator</h2>
-            {/* First row includes Pharmacy List, Map, Information */}
             <div className="row">
                 <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
                 <PharmacyMap pharmacy={selectedPharmacy} />
                 <PharmacyInformation list={pharmacyArray} pharmacy={selectedPharmacy} edit={editPharmacy} delete={deletePharmacy} />
             </div>
-            {/* Second row includes Input function */}
             <div className="row">
                 <PharmacyAdd add={createPharmacy} list={pharmacyArray} />
             </div>

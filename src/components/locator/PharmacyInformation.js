@@ -3,10 +3,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import CallIcon from '@mui/icons-material/Call';
 import { PharmacyNotes } from "./PharmacyNotes";
 
-// TO-DO:
-// Adjust "href" to be reactive
-// Adjust "value" to be reactive
-// Adjust "textbox value" for PharmacyNotes (done in its component)
 export function PharmacyInformation(props) {
     const pharmacy = props.pharmacy;
 
@@ -41,14 +37,6 @@ export function PharmacyInformation(props) {
         setPhoneNumber('');
     };
 
-    // Test Code
-
-    // console.log("This is the pharmacy spotted in PharmacyInformation:" +pharmacy);
-    // console.log(newPharmacy);
-    // console.log(name);
-    // console.log("State Variables: " + address + " " + phoneNumber);
-    // console.log("Pharmacy Variables: " + pharmacy.address + " " + pharmacy.phoneNumber);
-
     return (
         <div className="pharmacy-data col col-sm col-md col-lg">
             <section className="locator">
@@ -70,7 +58,6 @@ export function PharmacyInformation(props) {
                             <span >Number (#): <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
                             ></input></span>
                         </div>
-
                         <PharmacyNotes pharmacy={pharmacy} newPharmacy={newPharmacy} edit={props.edit} delete={deleteInformation} list={props.list} />
                     </div>
                 </div>

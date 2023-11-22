@@ -3,9 +3,6 @@ import ListIcon from '@mui/icons-material/List';
 import SearchIcon from '@mui/icons-material/Search';
 import { PharmacyCard } from "./PharmacyCard";
 
-// TO-DO
-// Take user input of "search", "name" OR "address" filters
-// Show only matching pharmacies in the list
 export function PharmacyList(props) {
     const pharmacyArray = props.list;
     const [search, setSearch] = useState("");
@@ -20,9 +17,6 @@ export function PharmacyList(props) {
     }
 
     const pharmacyCardArray = pharmacyArray.map((pharmacy) => {
-        // If name filter is selected, return pharmacies whose name contains the search
-        // Else if address filter is selected, return pharmacies whose name contains the search
-        // Else, return pharmacies whose name or address contains the search
         if (filter === "name" && pharmacy.name.includes(search)) {
             return (
                 <PharmacyCard
@@ -65,8 +59,6 @@ export function PharmacyList(props) {
                 <label className="filter-spacing" htmlFor="address-filter">Address</label><br />
                 <i className="material-icons"><SearchIcon /></i>
                 <input id="search-pharmacy" type="text" placeholder="Search.." onChange={searchFilter}></input>
-                {/* Replace below card with component */}
-                {/* This should render an array of all the corresponding pharmacies */}
                 {pharmacyCardArray}
             </section>
         </div>

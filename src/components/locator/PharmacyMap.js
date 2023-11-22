@@ -2,14 +2,6 @@ import React, { useState, useEffect } from "react";
 import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 import { Loader } from "@googlemaps/js-api-loader";
 
-// Note: Install "@vis.gl/react-google-maps" & @googlemaps/js-api-loader packages
-
-// TO-DO:
-// make "h3" pharmacy title respective
-// change "src" link
-// Add Google Maps API support
-// Adjust map sizing/positioning
-
 export function PharmacyMap(props) {
     const [name, setName] = useState("");
     const [location, setLocation] = useState({ lat: 47.65485149091028, lng: -122.30749748366422 });

@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 
-// TO-DO:
-// Make "id", "name", "for", and label name respective
-// set "checked" interaction
 export function PharmacyCard(props) {
 
     const pharmacyName = props.pharmacy.name;

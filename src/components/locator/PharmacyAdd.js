@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// TO-DO:
-// Take user input of "name", "address", and "phone number"
-// -> Add warning errors for wrong input (e.g. no name, no address)
-// Let only unique names be valid
-// Let button store input into list (List component will render the information)
-// Change "placeholder" values
 export function PharmacyAdd(props) {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
