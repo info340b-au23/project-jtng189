@@ -6,7 +6,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 // NOTE TO GRADER: Use Firebase website to test functionality of map
 
 // import SECRETS from "./secrets.json"
-// const API_KEY = SECRETS.API_KEY
+// const API_KEY = SECRETS.API_KEY;
 
 const API_KEY = '';
 
