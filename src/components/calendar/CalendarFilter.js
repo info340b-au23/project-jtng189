@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SearchIcon from "@mui/icons-material/Search";
 
-export function CalendarFilter(props) {
+export function CalendarFilter() {
     const [calendarView, setCalendarView] = useState("Month");
     const [searchFilter, setSearchFilter] = useState("");
 

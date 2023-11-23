@@ -1,17 +1,32 @@
 import React, {useState} from 'react';
-import { CalendarCarousel } from './CalendarCarousel';
-import { Week } from './Week';
+import { Week } from './CalendarDays';
 import { CalendarFilter } from './CalendarFilter';
+import Carousel from 'react-bootstrap/Carousel';
 
-export function Calendar(props) {
+
+export function Calendar() {
+    const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    let carouselItems = monthsList.map((month) => {
+        return (
+            <Carousel.Item key = {month}>
+                {month}
+            </Carousel.Item>
+        )
+    })
+
     return (
         <div>
             <h2>Calendar</h2>
             <div className="container" id="calendar">
-                <p className="ml-3">Click a day to add events to your calendar</p>
+                <p className="ml-3">Click a day to view and add events to your calendar</p>
                     <CalendarFilter/>
                 <h3 className="bg-dark text-light p-3 text-center text-center">
-                    <CalendarCarousel/>
+                    <div>
+                        <Carousel indicators = {false} prevLabel = "" nextLabel = "" interval = {null} slide = {false}>
+                            {carouselItems}
+                        </Carousel>
+                    </div>
                 </h3>
                 <table>
                     <thead>
