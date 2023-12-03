@@ -54,7 +54,7 @@ export function PharmacyAdd(props) {
     return (
         <div className="pharmacy-add col col-sm-12 col-md-8 col-lg-6 mx-auto">
             <section className="locator">
-                <h3>Add Pharmacy:</h3>
+                <h3>Add Pharmacy</h3>
                 <div className="card">
                     <div className="card-body">
                         <form>

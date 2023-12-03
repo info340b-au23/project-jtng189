@@ -12,7 +12,7 @@ export function PharmacyInformation(props) {
 
     // Sets the initial values of useStates to selected pharmacy
     useEffect(() => {
-        setAddress(pharmacy.address || ''); 
+        setAddress(pharmacy.address || '');
         setPhoneNumber(pharmacy.phoneNumber || '');
         setName(pharmacy.name || '');
     }, [pharmacy]);
@@ -24,7 +24,8 @@ export function PharmacyInformation(props) {
         setPhoneNumber(event.target.value);
     }
 
-    const newPharmacy = {...pharmacy,
+    const newPharmacy = {
+        ...pharmacy,
         name: name,
         address: address,
         phoneNumber: phoneNumber
@@ -48,15 +49,17 @@ export function PharmacyInformation(props) {
                                 href={"https://maps.google.com/?q=" + address}>
                                 <i className="material-icons" aria-label="Pharmacy location"><HomeIcon /></i>
                             </a>
-                            <span >Location: <input type="text" id="location" name="location" onChange={addressChange} value={address}
-                            ></input> </span>
+                            <span>Location:</span> <br />
+                            <input type="text" id="location" name="location" onChange={addressChange} value={address}
+                            ></input>
                         </div>
                         <div>
                             <a style={{ textDecoration: 'none' }} href={"tel:" + phoneNumber}>
                                 <i className="material-icons" aria-label="Call Pharmacy Phone Number"><CallIcon /></i>
                             </a>
-                            <span >Number (#): <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
-                            ></input></span>
+                            <span >Number (#):</span> <br />
+                            <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
+                            ></input>
                         </div>
                         <PharmacyNotes pharmacy={pharmacy} newPharmacy={newPharmacy} edit={props.edit} delete={deleteInformation} list={props.list} />
                     </div>

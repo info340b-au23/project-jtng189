@@ -160,6 +160,10 @@ img {
     font-size: 2rem;
 }
 
+div.card {
+    border: 0.1rem solid black;
+}
+
 div.card.map {
     min-width: 200px;
     width: 75%;
@@ -187,8 +191,17 @@ div.mobile-nav {
     padding: 10px;
 }
 
+/* Locator styling */
+input#search-pharmacy {
+    margin-bottom: 1rem;
+}
+
 .pharmacy-list div.card-body {
     padding: 0.25rem;
+}
+
+.pharmacy-list div.card {
+    padding: 0 1rem;
 }
 
 .pharmacy-list div.card:last-child,
@@ -199,6 +212,7 @@ div.mobile-nav {
 .pharmacy-data button {
     margin: 0 0.5rem;
     padding: 0 0.5rem;
+    width: 25vw;
 }
 
 .pharmacy-add button {
@@ -208,6 +222,10 @@ div.mobile-nav {
 
 .container table {
     display: none;
+}
+
+#location input {
+    margin-bottom: 10px;
 }
 
 /* Styling for .card-group .card on hover */
@@ -259,6 +277,10 @@ button {
 
 button.delete {
     background-color: red;
+}
+
+button.cancel {
+    background-color: gray;
 }
 
 .card.map {
@@ -354,6 +376,7 @@ button.delete {
     .pharmacy-data button {
         margin: 0 1rem;
         padding: 0 3rem;
+        width: 20vw;
     }
 
     .pharmacy-add button {
@@ -403,6 +426,7 @@ button.delete {
     .pharmacy-data button {
         margin: 0 2rem 1rem;
         padding: 0 3rem;
+        width: 15vw;
     }
 
     .card.map {
