@@ -41,7 +41,7 @@ export function PharmacyInformation(props) {
     return (
         <div className="pharmacy-data col col-sm col-md col-lg">
             <section className="locator">
-                <h3>{"Data Information: " + name}</h3>
+                <h3>Data Information: <span className="underline">{name}</span></h3>
                 <div className="card">
                     <div className="card-body">
                         <div>

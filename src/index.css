@@ -192,8 +192,16 @@ div.mobile-nav {
 }
 
 /* Locator styling */
-input#search-pharmacy {
+span.underline {
+    text-decoration: underline;
+}
+
+input#search-pharmacy, input#location {
     margin-bottom: 1rem;
+}
+
+p.warning-text {
+    font-size: 0.85rem;
 }
 
 .pharmacy-list div.card-body {

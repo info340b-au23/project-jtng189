@@ -9,6 +9,7 @@ export function PharmacyNotes(props) {
 
     useEffect(() => {
         setNote(pharmacy.note || '');
+        setShowDeleteWarning(false);
     }, [pharmacy]);
 
     const changeNote = (event) => {
@@ -26,7 +27,7 @@ export function PharmacyNotes(props) {
 
     function onDelete(event) {
         event.preventDefault();
-        if (pharmacy.name != "") {
+        if (pharmacy.name !== "") {
             setShowDeleteWarning(true);
         }
     }
@@ -44,9 +45,16 @@ export function PharmacyNotes(props) {
             return (
                 <div>
                     <p>Are you sure you want to delete this pharmacy?</p>
-                    <p>This will permanently erase all of the pharmacy's data.</p>
+                    <p className="warning-text">This will permanently erase all of the pharmacy's data.</p>
                     <button className="cancel" onClick={() => handleDeleteConfirm(false)}>Cancel</button>
                     <button className="delete" onClick={() => handleDeleteConfirm(true)}>Delete</button>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <button type="submit" aria-label="Save pharmacy information and notes" onClick={onSaveEdit}>Save</button>
+                    <button type="button" className="delete" aria-label="Delete pharmacy from list" onClick={onDelete}>Delete</button>
                 </div>
             );
         }
@@ -58,11 +66,9 @@ export function PharmacyNotes(props) {
                 <label htmlFor="pharNotes">
                     <i className="material-icons" aria-label="Pharmacy Notes"><EditNoteIcon /></i>
                     <span className="item-label">Notes</span>
-                </label><br></br>
+                </label><br />
                 <textarea className="form-control" id="pharNotes" name="pharNotes" rows="5" onChange={changeNote} value={note}>
-                </textarea><br></br>
-                <button type="submit" aria-label="Save pharmacy information and notes" onClick={onSaveEdit}>Save</button>
-                <button type="button" className="delete" aria-label="Delete pharmacy from list" onClick={onDelete}>Delete</button>
+                </textarea><br />
                 {deleteWarning()}
             </form>
         </div>

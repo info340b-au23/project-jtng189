@@ -45,7 +45,7 @@ export function PharmacyMap(props) {
     return (
         <div className="col col-sm col-md col-lg-5">
             <section className="locator">
-                <h3>{"Map Information: " + name}</h3>
+                <h3>Map Information: <span className="underline">{name}</span></h3>
                 <div className="card map mx-auto">
                     <APIProvider apiKey={API_KEY}>
                         <Map zoom={15} center={location} >
