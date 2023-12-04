@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -66,10 +66,13 @@ export function NavBar() {
                 <div className="user">
                     <nav>
                         <ul className="nav-item">
-                            <li className="item-hide nav-item"><a href="#">Username</a></li>
-                            <li className="nav-item"><a href="#">
-                                <img src={process.env.PUBLIC_URL + "/img/profile-pic.png"} alt="User profile picture"></img>
-                            </a>
+                            <li className="item-hide nav-item">
+                                <Link to="login">Sign In</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="login">
+                                    <img src={process.env.PUBLIC_URL + "/img/profile-pic.png"} alt="User profile picture"></img>
+                                </Link>
                             </li>
                         </ul>
                     </nav>

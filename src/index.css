@@ -191,6 +191,24 @@ div.mobile-nav {
     padding: 10px;
 }
 
+/* Login Page Styling */
+
+div.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+form.loginForm {
+    width: 80vw;
+    background-color: white;
+    border: 0.15rem solid black;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+}
+
 /* Locator styling */
 p.center-text {
     margin-top: 1rem;
@@ -227,7 +245,7 @@ p.warning-text {
     width: 25vw;
 }
 
-.pharmacy-add button {
+.pharmacy-add button, button.signButton {
     margin: 0.5rem 0;
     padding: 0 1rem;
 }
@@ -391,7 +409,7 @@ button.cancel {
         width: 20vw;
     }
 
-    .pharmacy-add button {
+    .pharmacy-add button, button.signButton {
         margin: 1rem 0;
         padding: 0 3rem;
     }
@@ -405,6 +423,10 @@ button.cancel {
     .pharmacy-add a {
         text-decoration: none;
         color: black;
+    }
+
+    form.loginForm {
+        width: 50vw;
     }
 }
 
@@ -443,6 +465,10 @@ button.cancel {
 
     .card.map {
         height: 400px;
+    }
+
+    form.loginForm {
+        width: 25vw;
     }
 }
 
