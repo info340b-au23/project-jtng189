@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getDatabase } from 'firebase/database';
 
 // TO-DO:
 // Style elements

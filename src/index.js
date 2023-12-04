@@ -6,6 +6,24 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDPa1tQ3Oj6SWytnYoNyUPDdBSxd2G_2A8",
+  authDomain: "careminder-bbd88.firebaseapp.com",
+  projectId: "careminder-bbd88",
+  storageBucket: "careminder-bbd88.appspot.com",
+  messagingSenderId: "992539475660",
+  appId: "1:992539475660:web:107b9327286da05329cc69"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
