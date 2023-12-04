@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// figure out how to install bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
