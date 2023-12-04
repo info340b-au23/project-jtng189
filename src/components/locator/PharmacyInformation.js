@@ -38,12 +38,46 @@ export function PharmacyInformation(props) {
         setPhoneNumber('');
     };
 
+    const displayInformation = () => {
+        if (pharmacy.name === "") {
+            return (
+                // <div className="card-body">
+                    <p className="center-text">Select a pharmacy from the list to display its information.</p>
+                // </div>
+            );
+        } else {
+            return (
+
+            <div className="card-body">
+                <div>
+                    <a style={{ textDecoration: 'none' }}
+                        href={"https://maps.google.com/?q=" + address}>
+                        <i className="material-icons" aria-label="Pharmacy location"><HomeIcon /></i>
+                    </a>
+                    <span>Location:</span> <br />
+                    <input type="text" id="location" name="location" onChange={addressChange} value={address}
+                    ></input>
+                </div>
+                <div>
+                    <a style={{ textDecoration: 'none' }} href={"tel:" + phoneNumber}>
+                        <i className="material-icons" aria-label="Call Pharmacy Phone Number"><CallIcon /></i>
+                    </a>
+                    <span >Number (#):</span> <br />
+                    <input type="text" id="phoneNum" name="phoneNum" onChange={phoneNumberChange} value={phoneNumber}
+                    ></input>
+                </div>
+                <PharmacyNotes pharmacy={pharmacy} newPharmacy={newPharmacy} edit={props.edit} delete={deleteInformation} list={props.list} />
+            </div>
+            );
+        }
+    }
+
     return (
         <div className="pharmacy-data col col-sm col-md col-lg">
             <section className="locator">
                 <h3>Data Information: <span className="underline">{name}</span></h3>
                 <div className="card">
-                    <div className="card-body">
+                    {/* <div className="card-body">
                         <div>
                             <a style={{ textDecoration: 'none' }}
                                 href={"https://maps.google.com/?q=" + address}>
@@ -62,7 +96,8 @@ export function PharmacyInformation(props) {
                             ></input>
                         </div>
                         <PharmacyNotes pharmacy={pharmacy} newPharmacy={newPharmacy} edit={props.edit} delete={deleteInformation} list={props.list} />
-                    </div>
+                    </div> */}
+                    {displayInformation()}
                 </div>
             </section>
         </div>

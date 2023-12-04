@@ -192,6 +192,10 @@ div.mobile-nav {
 }
 
 /* Locator styling */
+p.center-text {
+    margin-top: 1rem;
+}
+
 span.underline {
     text-decoration: underline;
 }
