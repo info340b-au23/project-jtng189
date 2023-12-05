@@ -191,6 +191,11 @@ div.mobile-nav {
     padding: 10px;
 }
 
+button.logout {
+    background-color: red;
+    margin-right: 2rem;
+}
+
 /* Login Page Styling */
 
 div.login {
@@ -199,15 +204,20 @@ div.login {
     align-items: center;
     text-align: center;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
 }
 
-form.loginForm {
+div.mdl-card {
+    border: 0.15rem solid black;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* form.loginForm {
     width: 80vw;
     background-color: white;
     border: 0.15rem solid black;
     box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* Locator styling */
 p.center-text {
@@ -425,9 +435,9 @@ button.cancel {
         color: black;
     }
 
-    form.loginForm {
+    /* form.loginForm {
         width: 50vw;
-    }
+    } */
 }
 
 /* Desktop+ size media query */
@@ -467,9 +477,9 @@ button.cancel {
         height: 400px;
     }
 
-    form.loginForm {
+    /* form.loginForm {
         width: 25vw;
-    }
+    } */
 }
 
 
