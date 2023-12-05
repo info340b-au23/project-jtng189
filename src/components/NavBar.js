@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -48,10 +48,15 @@ export function NavBar(props) {
         setLogOutMenuOpen(!logOutMenuOpen);
     }
 
+    function onClickLogOut() {
+        signOut(auth);
+        setLogOutMenuOpen(!logOutMenuOpen);
+    }
+
     function logOutMenu() {
         if (logOutMenuOpen) {
             return (
-                <button className="logout" type='submit' onClick={() => signOut(auth)}>Log Out</button>
+                <button className="logout" type='submit' onClick={() => onClickLogOut()}>Log Out</button>
             );
         }
     }
@@ -63,7 +68,6 @@ export function NavBar(props) {
             return (
                 <div>
                     <a href="#" onClick={toggleLogOut}>{props.username}</a><br />
-                    {logOutMenu()}
                 </div>
             );
         }
@@ -80,13 +84,11 @@ export function NavBar(props) {
             return (
                 <div>
                     <a href="#" onClick={toggleLogOut}><img src={process.env.PUBLIC_URL + "/img/profile-pic.png"} alt="User profile picture"></img></a><br />
-                    {logOutMenu()}
                 </div>
             )
         }
     }
 
-    console.log(logOutMenuOpen);
     return (
         <header>
             <div className="nav">
@@ -120,6 +122,7 @@ export function NavBar(props) {
                             </li>
                             <li className="nav-item">
                                 {displayProfilePicture()}
+                                {logOutMenu()}
                             </li>
                         </ul>
                     </nav>
