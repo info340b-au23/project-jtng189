@@ -39,9 +39,9 @@ export default function App() {
         <div>
             {displayUsername()}
             <Routes>
-                <Route index element={<Locator />} />
+                <Route index element={<LoginPage />} />
                 <Route path="login" element={<LoginPage />} />
-                <Route path="locator" element={<Locator />} />
+                <Route path="locator" element={<Locator userId={currentUser ? currentUser.userId : null}/>} />
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="tracker" element={<MedicationTable />} />
             </Routes>

@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PharmacyList } from "./PharmacyList";
 import { PharmacyMap } from "./PharmacyMap";
 import { PharmacyInformation } from "./PharmacyInformation";
 import { PharmacyAdd } from "./PharmacyAdd";
+import { getDatabase, onValue, ref, set } from "firebase/database";
 
-export function Locator() {
+export function Locator(props) {
     const [pharmacyArray, setPharmacyArray] = useState([]);
-    const [selectedPharmacy, setSelectedPharmacy] = useState({name : ""});
+    const [selectedPharmacy, setSelectedPharmacy] = useState({ name: "" });
+
+    const db = getDatabase();
+    const pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
+
+    useEffect(() => {
+
+        // Initialize pharmacy array from database
+        const db = getDatabase();
+        const pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
+        onValue(pharmacyArrayRef, (snapshot) => {
+            const pharmacyArrayValue = snapshot.val();
+            console.log("pharmacyArrayValue in Database: " + pharmacyArrayValue);
+            if (pharmacyArrayValue) {
+                setPharmacyArray(pharmacyArrayValue);
+            }
+        });
+
+    }, [props.userId])
 
     // creates a unique key
     const pharmacyKey = (pharmacyName) => {
@@ -16,7 +35,7 @@ export function Locator() {
 
     // creates a pharmacy
     const createPharmacy = (pharmacyName, pharmacyAddress, pharmacyNumber) => {
-        setPharmacyArray([...pharmacyArray,
+        const newPharmacyArray = ([...pharmacyArray,
         {
             name: pharmacyName,
             address: pharmacyAddress,
@@ -24,13 +43,16 @@ export function Locator() {
             note: "",
             key: pharmacyKey(pharmacyName)
         }]);
+
+        setPharmacyArray(newPharmacyArray);
+        set(pharmacyArrayRef, newPharmacyArray);
     }
 
     // Finds the selected pharmacy card in the array
     const selectPharmacy = (pharmacyName, pharmacyAddress) => {
         const pharmacy = pharmacyArray.filter((pharmacy) => {
             return (pharmacy.name === pharmacyName && pharmacy.address === pharmacyAddress);
-            })
+        })
         setSelectedPharmacy(pharmacy.pop());
     }
 
@@ -41,6 +63,7 @@ export function Locator() {
             }
             return pharmacy;
         });
+        set(pharmacyArrayRef, newList);
         setPharmacyArray(newList);
 
         setSelectedPharmacy(newPharmacy);
@@ -48,7 +71,8 @@ export function Locator() {
 
     const deletePharmacy = (currentPharmacy, pharmacyList) => {
         setPharmacyArray(pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
-        setSelectedPharmacy({name: ""})
+        set(pharmacyArrayRef, pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
+        setSelectedPharmacy({ name: "" });
     }
 
     return (
