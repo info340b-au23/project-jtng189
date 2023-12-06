@@ -19,7 +19,6 @@ export function Locator(props) {
         if (props.userId !== null) {
             onValue(pharmacyArrayRef, (snapshot) => {
                 const pharmacyArrayValue = snapshot.val();
-                console.log("pharmacyArrayValue in Database: " + pharmacyArrayValue);
                 if (pharmacyArrayValue) {
                     setPharmacyArray(pharmacyArrayValue);
                 }
@@ -32,7 +31,7 @@ export function Locator(props) {
         onAuthStateChanged(auth, (firebaseUser) => {
             if (!firebaseUser) {
                 setPharmacyArray([]);
-                setSelectedPharmacy({name:''});
+                setSelectedPharmacy({ name: '' });
             }
         })
 
@@ -87,15 +86,17 @@ export function Locator(props) {
     }
 
     return (
-        <div>
-            <h2 className="text-center">Pharmacy Locator</h2>
-            <div className="row">
-                <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
-                <PharmacyMap pharmacy={selectedPharmacy} />
-                <PharmacyInformation list={pharmacyArray} pharmacy={selectedPharmacy} edit={editPharmacy} delete={deletePharmacy} />
-            </div>
-            <div className="row">
-                <PharmacyAdd add={createPharmacy} list={pharmacyArray} />
+        <div className="pharmacy-background">
+            <div className="pharmacy-background-overlay">
+                <h2 className="text-center">Pharmacy Locator</h2>
+                <div className="row">
+                    <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
+                    <PharmacyMap pharmacy={selectedPharmacy} />
+                    <PharmacyInformation list={pharmacyArray} pharmacy={selectedPharmacy} edit={editPharmacy} delete={deletePharmacy} />
+                </div>
+                <div className="row">
+                    <PharmacyAdd add={createPharmacy} list={pharmacyArray} />
+                </div>
             </div>
         </div>
     );
