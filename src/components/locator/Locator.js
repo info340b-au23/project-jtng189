@@ -4,6 +4,7 @@ import { PharmacyMap } from "./PharmacyMap";
 import { PharmacyInformation } from "./PharmacyInformation";
 import { PharmacyAdd } from "./PharmacyAdd";
 import { getDatabase, onValue, ref, set } from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export function Locator(props) {
     const [pharmacyArray, setPharmacyArray] = useState([]);
@@ -15,15 +16,25 @@ export function Locator(props) {
     useEffect(() => {
 
         // Initialize pharmacy array from database
-        const db = getDatabase();
-        const pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
-        onValue(pharmacyArrayRef, (snapshot) => {
-            const pharmacyArrayValue = snapshot.val();
-            console.log("pharmacyArrayValue in Database: " + pharmacyArrayValue);
-            if (pharmacyArrayValue) {
-                setPharmacyArray(pharmacyArrayValue);
+        if (props.userId !== null) {
+            onValue(pharmacyArrayRef, (snapshot) => {
+                const pharmacyArrayValue = snapshot.val();
+                console.log("pharmacyArrayValue in Database: " + pharmacyArrayValue);
+                if (pharmacyArrayValue) {
+                    setPharmacyArray(pharmacyArrayValue);
+                }
+            });
+        } else {
+            set(pharmacyArrayRef, {});
+        }
+
+        const auth = getAuth();
+        onAuthStateChanged(auth, (firebaseUser) => {
+            if (!firebaseUser) {
+                setPharmacyArray([]);
+                setSelectedPharmacy({name:''});
             }
-        });
+        })
 
     }, [props.userId])
 
