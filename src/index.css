@@ -80,6 +80,7 @@ footer {
     width: 100%;
     text-align: center;
     color: black;
+    border-top: 2.5px solid black;
 }
 
 footer p {
@@ -92,7 +93,7 @@ footer a {
 
 .nav {
     text-align: center;
-    /* background-color: #F5EEC8; */
+    border-bottom: 2.5px solid black;
 }
 
 /* Styling for flex containers */
