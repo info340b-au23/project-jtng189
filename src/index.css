@@ -31,9 +31,12 @@ h1 {
 }
 
 /* Subheadings styling */
+
+/* margin-top allows content to not be covered by navbar */
 h2 {
     text-align: center;
     font-size: 1.25rem;
+    margin-top: 5.5rem;
 }
 
 h3 {
@@ -41,10 +44,14 @@ h3 {
     text-align: center;
 }
 
-h2,
 h3,
 label {
     margin-top: 1rem;
+}
+
+h2, 
+h3, 
+label {
     margin-bottom: .5rem;
 }
 
@@ -92,8 +99,13 @@ footer a {
 }
 
 .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
     text-align: center;
     border-bottom: 2.5px solid black;
+    margin-bottom: 5.5rem;
 }
 
 /* Styling for flex containers */
@@ -184,17 +196,18 @@ div.mobile-nav {
     display: block;
     position: absolute;
     text-align: left;
+    border: 1px solid black;
 }
 
 .mobile-nav div {
     background-color: white;
     min-width: 120px;
     padding: 10px;
+    border-bottom: 1px dashed black;
 }
 
 button.logout {
     background-color: red;
-    margin-right: 2rem;
 }
 
 /* Login Page Styling */
@@ -344,6 +357,12 @@ button.cancel {
     cursor: pointer;
   }
 
+  /* margin-top allows content to not be covered by navbar */
+  /* @Pooja If you have any content above this, change class to re-adjust positioning for navbar */
+  .table-responsive {
+    margin-top: 5.5rem;
+  }
+
 /* Tablet size media query */
 @media (min-width: 768px) {
     /* Reenables text for larger screens */
@@ -429,6 +448,9 @@ button.cancel {
         color: black;
     }
 
+    a.username {
+        margin-right: 1rem;
+    }
 }
 
 /* Desktop+ size media query */

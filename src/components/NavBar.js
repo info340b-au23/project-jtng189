@@ -66,9 +66,7 @@ export function NavBar(props) {
             return (<Link to="login">Sign Up</Link>);
         } else {
             return (
-                <div>
-                    <a href="#" onClick={toggleLogOut}>{props.username}</a><br />
-                </div>
+                <a className="username" href="#" onClick={toggleLogOut}>{props.username}</a>
             );
         }
     }
@@ -82,9 +80,7 @@ export function NavBar(props) {
             );
         } else {
             return (
-                <div>
-                    <a href="#" onClick={toggleLogOut}><img src={process.env.PUBLIC_URL + "/img/profile-pic.png"} alt="User profile picture"></img></a><br />
-                </div>
+                <a href="#" onClick={toggleLogOut}><img src={process.env.PUBLIC_URL + "/img/profile-pic.png"} alt="User profile picture"></img></a>
             )
         }
     }
@@ -121,7 +117,7 @@ export function NavBar(props) {
                                 {displayUsername()}
                             </li>
                             <li className="nav-item">
-                                {displayProfilePicture()}
+                                {displayProfilePicture()} <br />
                                 {logOutMenu()}
                             </li>
                         </ul>
