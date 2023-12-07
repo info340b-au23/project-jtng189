@@ -5,9 +5,8 @@
 
 body {
     /* Body styling */
-    font-family:  Tahoma;
-    /* background-color: #A7D397; */
-    background-color: rgba(167, 211, 151, 1);
+    font-family:  'Azeret Mono',sans-serif ,Verdana, Geneva, Tahoma;
+    background-color: #A7D397;
     color: #141414;
     margin-bottom: 100px;
 }
