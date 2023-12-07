@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { Locator } from "./components/locator/Locator";
@@ -34,12 +34,20 @@ export default function App() {
             return(<NavBar username='' />);
         }
     }
+
+    function RequireAuth() {
+        if (currentUser) {
+            return <Locator userId={currentUser ? currentUser.userId : null}/>;
+        } else {
+            return <Navigate to="/login" />;
+        }
+    }
  
     return (
         <div>
             {displayUsername()}
             <Routes>
-                <Route index element={<LoginPage />} />
+                <Route index element={<RequireAuth />} />
                 <Route path="login" element={<LoginPage />} />
                 <Route path="locator" element={<Locator userId={currentUser ? currentUser.userId : null}/>} />
                 <Route path="calendar" element={<Calendar />} />
