@@ -13,6 +13,7 @@ import { useEffect } from "react";
 export default function App() {
     
     const [currentUser, setCurrentUser] = useState(null);
+    const [authCheckComplete, setAuthCheckComplete] = useState(false);
 
     useEffect(() => {
         const auth = getAuth();
@@ -24,6 +25,7 @@ export default function App() {
             } else {
                 setCurrentUser(null);
             }
+            setAuthCheckComplete(true);
         })
     }, []);
 
@@ -36,13 +38,17 @@ export default function App() {
     }
 
     function RequireAuth() {
+        if (!authCheckComplete) {
+            return null;
+        }
+
         if (currentUser) {
-            return <Locator userId={currentUser ? currentUser.userId : null}/>;
+            return <Navigate to="/locator"/>;
         } else {
             return <Navigate to="/login" />;
         }
     }
- 
+    
     return (
         <div>
             {displayUsername()}
@@ -52,6 +58,7 @@ export default function App() {
                 <Route path="locator" element={<Locator userId={currentUser ? currentUser.userId : null}/>} />
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="tracker" element={<MedicationTable />} />
+                <Route path="*" element={<RequireAuth />} />
             </Routes>
             <Footer />
         </div>
