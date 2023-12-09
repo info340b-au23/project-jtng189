@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function MedicationTable() {
+
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    // Access the 'id' parameter here and use it as needed
+    console.log('Path parameter (id):', id);
+  }, [id]);
+
   const [medications, setMedications] = useState([
     { id: 1, name: 'Aspirin', dose: 100, timesTaken: 0 },
     { id: 2, name: 'Ibuprofen', dose: 200, timesTaken: 0 },
@@ -13,7 +23,6 @@ function MedicationTable() {
   const [doseAmount, setDoseAmount] = useState('');
 
   const handleAddMedication = () => {
-    // Handle the logic for adding medication
     const newMedication = {
       id: medications.length + 1,
       name: medicationName,
@@ -23,14 +32,12 @@ function MedicationTable() {
 
     setMedications((prevMedications) => [...prevMedications, newMedication]);
 
-    // Close the modal
     setShowAddModal(false);
-    // Reset the input fields
     setMedicationName('');
     setDoseAmount('');
   };
 
-  const handleCheckboxChange = (medicationId) => {
+  const handleButtonClick = (medicationId) => {
     setMedications((prevMedications) =>
       prevMedications.map((medication) =>
         medication.id === medicationId
@@ -58,10 +65,12 @@ function MedicationTable() {
               <td>{medication.dose}</td>
               <td>{medication.timesTaken}</td>
               <td>
-                <input
-                  type="checkbox"
-                  onChange={() => handleCheckboxChange(medication.id)}
-                />
+                <button
+                  onClick={() => handleButtonClick(medication.id)}
+                  className="btn btn-sm btn-take"
+                >
+                  Take
+                </button>
               </td>
             </tr>
           ))}
@@ -74,11 +83,13 @@ function MedicationTable() {
         </button>
       </div>
 
-      <img
-        src="Project-Draft/img/medication.png"
-        alt="Medication"
-        className="header-image"
-      />
+      <div className="centered-container">
+        <img
+          src="/img/medication.png"
+          alt="Medication"
+          className="header-image smaller-image"
+        />
+      </div>
 
       {/* Add Medication Modal */}
       {showAddModal && (
