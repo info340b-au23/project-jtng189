@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Azeret+Mono");
+
 /* Global styling */
 * {
     box-sizing: border-box;
@@ -214,6 +216,7 @@ button.logout {
 
 div.login {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
