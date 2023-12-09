@@ -148,6 +148,18 @@ img {
     height: auto;
 }
 
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+  .smaller-image {
+    width: 500px;
+    height: auto;
+  }
+
 /* Styling for material icons */
 .material-icons {
     display: inline-flex;
@@ -314,6 +326,12 @@ th, td {
     padding: 10px;
     text-align: center;
 }
+
+.btn-take {
+    background-color: #198754;
+    color: white;
+    border: none;
+  }
 
 /* Styling for buttons */
 button {
