@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import { Week } from './CalendarDays';
 import { CalendarFilter } from './CalendarFilter';
 import Carousel from 'react-bootstrap/Carousel';
-
+import InfoIcon from "@mui/icons-material/Info";
+import moment from 'moment';
 
 export function Calendar() {
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const today = moment();
+    const [currentMonth, setCurrentMonth] = useState(today);
 
     let carouselItems = monthsList.map((month) => {
         return (
@@ -15,15 +18,21 @@ export function Calendar() {
         )
     })
 
+    function currentIndex(activeIndex) {
+        console.log(activeIndex);
+        console.log(currentMonth);
+        setCurrentMonth(moment().month(activeIndex));
+    }
+
     return (
         <div>
             <h2>Calendar</h2>
             <div className="container" id="calendar">
-                <p className="ml-3">Click a day to view and add events to your calendar</p>
-                    <CalendarFilter/>
-                <h3 className="bg-dark text-light p-3 text-center text-center">
+                <i className="material-icons"><InfoIcon /><p>Click a day to view and add events to your calendar</p></i>
+                <CalendarFilter/>
+                <h3 className="bg-dark text-light p-3 text-center">
                     <div>
-                        <Carousel indicators = {false} prevLabel = "" nextLabel = "" interval = {null} slide = {false}>
+                        <Carousel indicators = {false} prevLabel = "" nextLabel = "" interval = {null} slide = {false} onSelect={currentIndex} defaultActiveIndex={currentMonth.month()}>
                             {carouselItems}
                         </Carousel>
                     </div>
@@ -41,7 +50,7 @@ export function Calendar() {
                         </tr>
                     </thead>
                 </table>
-                <Week/>
+                <Week today={currentMonth}/>
             </div>
         </div>
     );

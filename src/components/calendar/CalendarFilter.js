@@ -7,10 +7,16 @@ export function CalendarFilter() {
 
     function selectChange(event) {
         setCalendarView(event.target.value);
+
+        // display the current week if week is selected, otherwise default is the current month
+        
     }
 
     function searchHandler(event) {
         setSearchFilter(event.target.value);
+
+        // list the days with an event that contains the search term
+
     }
 
     const views = ["Month", "Week"].map((view) => {

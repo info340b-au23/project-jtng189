@@ -281,8 +281,12 @@ p.warning-text {
 
 /* Styling for .card-group .card on hover */
 .card-group .card:hover {
-    background-color: gray;
+    background-color: lightgreen;
     font-weight: bold;
+}
+
+.invalid-day {
+    background-color: lightgray;
 }
 
 /* Styling for carousel control icons */
