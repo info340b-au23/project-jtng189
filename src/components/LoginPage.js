@@ -7,7 +7,7 @@ import { StyledFirebaseAuth } from "react-firebaseui";
 // Password: password
 
 // TO-DO:
-export function LoginPage(props) {
+export function LoginPage() {
 
     const auth = getAuth();
 
@@ -23,13 +23,14 @@ export function LoginPage(props) {
         callbacks: {
             signInSuccessWithAuthResult: () => true
         },
-        signInSuccessUrl: '/locator',
+        signInSuccessUrl: ('/locator'),
         credentialHelper: 'none'
     }
 
 
     return (
         <div className="container login">
+            <h2 className="text-center">Login Page</h2>
             <StyledFirebaseAuth firebaseAuth={auth} uiConfig={configObj} />
         </div>
     );
