@@ -17,8 +17,8 @@ export function Locator(props) {
     let pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
 
     useEffect(() => {
+        
         // Initialize pharmacy array from database
-
         const auth = getAuth();
         onAuthStateChanged(auth, (firebaseUser) => {
             if (!firebaseUser) {
@@ -154,7 +154,6 @@ export function Locator(props) {
         }
     }
 
-    console.log(showAlert);
     return (
         <div className="pharmacy-background">
             <div className="pharmacy-background-overlay">
