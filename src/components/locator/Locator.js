@@ -9,33 +9,45 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 export function Locator(props) {
     const [pharmacyArray, setPharmacyArray] = useState([]);
     const [selectedPharmacy, setSelectedPharmacy] = useState({ name: "" });
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertType, setAlertType] = useState('');
+    const [alertMessage, setAlertMessage] = useState('');
 
     const db = getDatabase();
-    const pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
+    let pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
 
     useEffect(() => {
-
         // Initialize pharmacy array from database
-        if (props.userId !== null) {
-            onValue(pharmacyArrayRef, (snapshot) => {
-                const pharmacyArrayValue = snapshot.val();
-                if (pharmacyArrayValue) {
-                    setPharmacyArray(pharmacyArrayValue);
-                }
-            });
-        } else {
-            set(pharmacyArrayRef, {});
-        }
 
         const auth = getAuth();
         onAuthStateChanged(auth, (firebaseUser) => {
             if (!firebaseUser) {
                 setPharmacyArray([]);
                 setSelectedPharmacy({ name: '' });
+                pharmacyArrayRef = ref(db, "users/" + null + "/pharmacyArray");
+
+                set(pharmacyArrayRef, {})
+                    .then(() => {
+                        setAlertType('warning');
+                        setAlertMessage('Login in order to save information.');
+                        setShowAlert(true);
+                    })
+                    .catch((error) => {
+                        setAlertType('failure');
+                        setAlertMessage(error.message);
+                        setShowAlert(true);
+                    })
+            } else {
+                pharmacyArrayRef = ref(db, "users/" + firebaseUser.uid + "/pharmacyArray");
+                onValue(pharmacyArrayRef, (snapshot) => {
+                    const pharmacyArrayValue = snapshot.val();
+                    if (pharmacyArrayValue) {
+                        setPharmacyArray(pharmacyArrayValue);
+                    }
+                });
             }
         })
-
-    }, [props.userId])
+    }, [])
 
     // creates a unique key
     const pharmacyKey = (pharmacyName) => {
@@ -55,7 +67,17 @@ export function Locator(props) {
         }]);
 
         setPharmacyArray(newPharmacyArray);
-        set(pharmacyArrayRef, newPharmacyArray);
+        set(pharmacyArrayRef, newPharmacyArray)
+            .then(() => {
+                setAlertType('success');
+                setAlertMessage('Successfully created the pharmacy.')
+                setShowAlert(true);
+            })
+            .catch((error) => {
+                setAlertType('failure');
+                setAlertMessage(error.message);
+                setShowAlert(true);
+            })
     }
 
     // Finds the selected pharmacy card in the array
@@ -73,22 +95,71 @@ export function Locator(props) {
             }
             return pharmacy;
         });
-        set(pharmacyArrayRef, newList);
+        set(pharmacyArrayRef, newList)
+            .then(() => {
+                setAlertType('success');
+                setAlertMessage('Successfully edited the pharmacy.')
+                setShowAlert(true);
+            })
+            .catch((error) => {
+                setAlertType('failure');
+                setAlertMessage(error.message);
+                setShowAlert(true);
+            })
         setPharmacyArray(newList);
-
         setSelectedPharmacy(newPharmacy);
     }
 
     const deletePharmacy = (currentPharmacy, pharmacyList) => {
         setPharmacyArray(pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
-        set(pharmacyArrayRef, pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
+        set(pharmacyArrayRef, pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy))
+            .then(() => {
+                setAlertType('success');
+                setAlertMessage('Successfully deleted the pharmacy.')
+                setShowAlert(true);
+            })
+            .catch((error) => {
+                setAlertType('failure');
+                setAlertMessage(error.message);
+                setShowAlert(true);
+            })
         setSelectedPharmacy({ name: "" });
     }
 
+    // Displays 3 different alert messages: failure, warning, success
+    function displayAlert() {
+        if (showAlert) {
+            if (alertType === "failure") {
+                return (
+                    <div className="alert alert-danger text-center" role="alert">
+                        {alertMessage}
+                        <button type="button" className="btn-close" aria-label="Close" onClick={() => setShowAlert(false)}></button>
+                    </div>
+                );
+            } else if (alertType === "warning") {
+                return (
+                    <div className="alert alert-warning text-center" role="alert">
+                        {alertMessage}
+                        <button type="button" className="btn-close" aria-label="Close" onClick={() => setShowAlert(false)}></button>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="alert alert-success text-center" role="alert">
+                        {alertMessage}
+                        <button type="button" className="btn-close" aria-label="Close" onClick={() => setShowAlert(false)}></button>
+                    </div>
+                );
+            }
+        }
+    }
+
+    console.log(showAlert);
     return (
         <div className="pharmacy-background">
             <div className="pharmacy-background-overlay">
                 <h2 className="text-center">Pharmacy Locator</h2>
+                {displayAlert()}
                 <div className="row">
                     <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
                     <PharmacyMap pharmacy={selectedPharmacy} />

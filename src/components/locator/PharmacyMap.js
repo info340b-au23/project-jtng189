@@ -40,8 +40,8 @@ export function PharmacyMap(props) {
                     }
                 });
             })
-            .catch(function(err) {
-                setErrorMessage(err);
+            .catch(function(error) {
+                setErrorMessage(error.message);
                 setShowError(true);
             });
     }, [props.pharmacy.address]);
