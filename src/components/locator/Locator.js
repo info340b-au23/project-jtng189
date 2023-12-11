@@ -127,7 +127,7 @@ export function Locator(props) {
     }
 
     // Displays 3 different alert messages: failure, warning, success
-    function displayAlert() {
+    function DisplayAlert() {
         if (showAlert) {
             if (alertType === "failure") {
                 return (
@@ -158,7 +158,7 @@ export function Locator(props) {
         <div className="pharmacy-background">
             <div className="pharmacy-background-overlay">
                 <h2 className="text-center">Pharmacy Locator</h2>
-                {displayAlert()}
+                <DisplayAlert />
                 <div className="row">
                     <PharmacyList list={pharmacyArray} selectedPharmacy={selectedPharmacy} selectPharmacy={selectPharmacy} />
                     <PharmacyMap pharmacy={selectedPharmacy} />
