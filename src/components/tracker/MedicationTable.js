@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 
 function MedicationTable() {
   const { id } = useParams();
-
   const [medications, setMedications] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [medicationName, setMedicationName] = useState('');
@@ -15,7 +14,6 @@ function MedicationTable() {
   const db = getDatabase();
   const auth = getAuth();
   let medicationsRef;
-  let mounted = true;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +24,7 @@ function MedicationTable() {
             resolve(user);
           });
         });
-  
+
         if (!firebaseUser) {
           setMedications([]);
           medicationsRef = ref(db, 'medications/' + null);
@@ -36,8 +34,7 @@ function MedicationTable() {
             const medicationsValue = snapshot.val();
             if (medicationsValue) {
               setMedications(medicationsValue);
-  
-              // If an ID is provided, select the medication with that ID
+
               setSelectedMedication(
                 id ? medicationsValue.find((med) => med.id === parseInt(id, 10)) : null
               );
@@ -48,19 +45,12 @@ function MedicationTable() {
         console.error('Error fetching data: ', error);
       }
     };
-  
-    fetchData();
 
-    // Cleanup function to set mounted to false when the component is unmounted
-    return () => {
-      mounted = false;
-    };
+    fetchData();
   }, [auth, db, id]);
 
   const handleAddMedication = async () => {
     try {
-      
-      // Ensure medicationsRef is defined before attempting to use it
       if (medicationsRef) {
         const newMedication = {
           id: medications.length + 1,
@@ -68,8 +58,7 @@ function MedicationTable() {
           dose: parseInt(doseAmount, 10),
           timesTaken: 0,
         };
-  
-        // Use set method with correct path
+
         await set(medicationsRef, [...medications, newMedication]);
         setShowAddModal(false);
         setMedicationName('');
@@ -81,7 +70,6 @@ function MedicationTable() {
       console.error('Error adding medication: ', error);
     }
   };
-  
 
   const handleButtonClick = (medicationId) => {
     setMedications((prevMedications) =>
@@ -131,10 +119,8 @@ function MedicationTable() {
         </table>
       )}
 
-      <div className="text-right mt-3">
-        <button className="btn btn-success" onClick={() => setShowAddModal(true)}>
-          Add Medication
-        </button>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        <img src="/img/medication.png" alt="Medication" className="smaller-image" />
       </div>
 
       {showAddModal && (
