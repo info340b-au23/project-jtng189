@@ -4,7 +4,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useParams } from 'react-router-dom';
 
 function MedicationTable() {
-  const { id } = useParams(); // Access the path parameter
+  const { id } = useParams();
 
   const [medications, setMedications] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
@@ -13,47 +13,75 @@ function MedicationTable() {
   const [selectedMedication, setSelectedMedication] = useState(null);
 
   const db = getDatabase();
-  let medicationsRef;
-
   const auth = getAuth();
-  onAuthStateChanged(auth, (firebaseUser) => {
-    if (!firebaseUser) {
-      setMedications([]);
-      medicationsRef = ref(db, 'medications/' + null);
-    } else {
-      medicationsRef = ref(db, 'medications/' + firebaseUser.uid);
-      onValue(medicationsRef, (snapshot) => {
-        const medicationsValue = snapshot.val();
-        if (medicationsValue) {
-          setMedications(medicationsValue);
+  let medicationsRef;
+  let mounted = true;
 
-          // If an ID is provided, select the medication with that ID
-          setSelectedMedication(
-            id ? medicationsValue.find((med) => med.id === parseInt(id, 10)) : null
-          );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const firebaseUser = await new Promise((resolve) => {
+          const unsubscribe = onAuthStateChanged(auth, (user) => {
+            unsubscribe();
+            resolve(user);
+          });
+        });
+  
+        if (!firebaseUser) {
+          setMedications([]);
+          medicationsRef = ref(db, 'medications/' + null);
+        } else {
+          medicationsRef = ref(db, 'medications/' + firebaseUser.uid);
+          onValue(medicationsRef, (snapshot) => {
+            const medicationsValue = snapshot.val();
+            if (medicationsValue) {
+              setMedications(medicationsValue);
+  
+              // If an ID is provided, select the medication with that ID
+              setSelectedMedication(
+                id ? medicationsValue.find((med) => med.id === parseInt(id, 10)) : null
+              );
+            }
+          });
         }
-      });
-    }
-  });
-
-  const handleAddMedication = () => {
-    const newMedication = {
-      id: medications.length + 1,
-      name: medicationName,
-      dose: parseInt(doseAmount, 10),
-      timesTaken: 0,
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
     };
+  
+    fetchData();
 
-    set(medicationsRef, [...medications, newMedication])
-      .then(() => {
+    // Cleanup function to set mounted to false when the component is unmounted
+    return () => {
+      mounted = false;
+    };
+  }, [auth, db, id]);
+
+  const handleAddMedication = async () => {
+    try {
+      
+      // Ensure medicationsRef is defined before attempting to use it
+      if (medicationsRef) {
+        const newMedication = {
+          id: medications.length + 1,
+          name: medicationName,
+          dose: parseInt(doseAmount, 10),
+          timesTaken: 0,
+        };
+  
+        // Use set method with correct path
+        await set(medicationsRef, [...medications, newMedication]);
         setShowAddModal(false);
         setMedicationName('');
         setDoseAmount('');
-      })
-      .catch((error) => {
-        console.error('Error adding medication: ', error);
-      });
+      } else {
+        console.error('Error: medicationsRef is undefined');
+      }
+    } catch (error) {
+      console.error('Error adding medication: ', error);
+    }
   };
+  
 
   const handleButtonClick = (medicationId) => {
     setMedications((prevMedications) =>

@@ -57,7 +57,7 @@ export default function App() {
                 <Route path="login" element={<LoginPage />} />
                 <Route path="locator" element={<Locator userId={currentUser ? currentUser.userId : null}/>} />
                 <Route path="calendar" element={<Calendar />} />
-                <Route path="tracker/:id" element={<MedicationTable />} />
+                <Route path="tracker" element={<MedicationTable />} />
                 <Route path="*" element={<RequireAuth />} />
             </Routes>
             <Footer />
