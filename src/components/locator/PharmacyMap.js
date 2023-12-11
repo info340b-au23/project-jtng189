@@ -64,7 +64,6 @@ export function PharmacyMap(props) {
         }
     }
 
-    console.log(showError);
     return (
         <div className="col col-sm col-md col-lg-5">
             <section className="locator">
