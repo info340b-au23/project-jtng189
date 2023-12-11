@@ -47,7 +47,6 @@ export function PharmacyList(props) {
                 );
             }
         }
-        return null;
     });
 
     return (
