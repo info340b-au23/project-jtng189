@@ -15,34 +15,65 @@ function Day({ day, checkValidDay, validDay, invalidDay }) {
     )
 }
 
-export function Week({ today }) {
+export function Week({ today, newWeek, view }) {
     const [showEvent, setShowEvent] = useState(false);
-    const [events, setEvents] = useState([
-        {name: "Annual Checkup", time: "2:30", description: "Checkup with Dr. Johnson"},
-    ]);
+    const [events, setEvents] = useState([]);
+    const [selectDay, setSelectDay] = useState();
+    const m = today.month();
 
     const month = [];
     for (let i = 0; i < today.daysInMonth(); i++) {
         month.push(moment(today).startOf("month").add(i, "days"));
     }
 
-    const weeks = [];
-    let index = 0;
-    for (let i = 0; i < month.length + today.startOf("month").day(); i += 7) {
-        const week = [];
-        for (let j = 0; j < 7; j++) {
-            const day = i + j - today.startOf("month").day() + 1;
-            index++;
-            if (day > 0 && day <= month.length) {
-                week.push(day);
-            } else {
-                week.push("");
-            }
-        }
-        weeks.push(week);
-    }
+    function chosenView(view) {
+        const weeks = [];
 
-    function toggleEvent() {
+        if (view == "Month") {
+            for (let i = 0; i < month.length + today.startOf("month").day(); i += 7) {
+                const week = [];
+
+                for (let j = 0; j < 7; j++) {
+                    const day = i + j - today.startOf("month").day() + 1;
+
+                    if (day > 0 && day <= month.length) {
+                        week.push(day);
+                    } else {
+                        week.push("");
+                    }
+                }
+                weeks.push(week);
+            }
+
+            return (
+                <div>
+                    {weeks.map(week => (
+                        <div className="card-group">
+                            {week.map(day => (
+                                <Day day = {day} checkValidDay={checkValidDay} validDay={validDay} invalidDay={invalidDay}/>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            )
+        } else {
+            for (let i = 0; i < 7; i++) {
+                const day = moment(newWeek).startOf("week").add(i, "days").date();
+                weeks.push(day);
+            }
+
+            return (
+                <div className="card-group">
+                    {weeks.map(day => (
+                        <Day day = {day} checkValidDay={checkValidDay} validDay={validDay} invalidDay={invalidDay}/>
+                    ))}
+                </div>
+            )
+        }
+    }  
+
+    function toggleEvent(day) {
+        setSelectDay(day);
         setShowEvent(!showEvent);
     }
 
@@ -56,8 +87,8 @@ export function Week({ today }) {
 
     function validDay(day) {
         return (
-            <div className="card-body">
-                <a className="stretched-link" onClick = {toggleEvent}></a>
+            <div className="card-body"  onClick={() => {toggleEvent(day)}}>
+                <a className="stretched-link"></a>
                 <p className="card-text text-left">{day}</p>
             </div>
         )
@@ -73,15 +104,9 @@ export function Week({ today }) {
 
     return (
         <div>
-            {weeks.map(week => (
-                <div className="card-group">
-                    {week.map(day => (
-                        <Day day = {day} checkValidDay={checkValidDay} validDay={validDay} invalidDay={invalidDay}/>
-                    ))}
-                </div>
-            ))}
+            {chosenView(view)}
             {showEvent && (
-                <CalendarEvent toggleEvent={toggleEvent} events={events} setEvents={setEvents}/>
+                <CalendarEvent events={events} setEvents={setEvents} date={m + "-" + selectDay}/>
             )}
         </div>
     )
