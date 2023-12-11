@@ -29,7 +29,7 @@ function MedicationTable() {
         setMedications([]);
       } else {
         console.log('User found:', firebaseUser.uid);
-        const userMedicationsRef = ref(db, `medications/${firebaseUser.uid}`);
+        const userMedicationsRef = ref(db, "users/" + firebaseUser.uid + "/medications");
 
         medicationsRef.current = userMedicationsRef;
 
