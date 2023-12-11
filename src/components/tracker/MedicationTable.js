@@ -89,6 +89,25 @@ function MedicationTable() {
     }
   };
 
+  const handleButtonClick = (medicationId) => {
+    console.log('Clicked medicationId:', medicationId);
+
+    setMedications((prevMedications) => {
+      const updatedMedications = prevMedications.map((medication) => {
+        if (medication.id === medicationId) {
+          const updatedMedication = { ...medication, timesTaken: medication.timesTaken + 1 };
+          console.log(`Updating medication with ID ${medicationId}:`, updatedMedication);
+          return updatedMedication;
+        }
+        return medication;
+      });
+
+      console.log('Updated medications:', updatedMedications);
+
+      return updatedMedications;
+    });
+  };
+
   return (
     <div className="table-responsive">
       <table className="table">
@@ -109,14 +128,7 @@ function MedicationTable() {
                 <td>{medication.timesTaken}</td>
                 <td>
                   <button
-                    onClick={() => {
-                      console.log('Clicked medicationId:', medication.id);
-                      setMedications((prevMedications) =>
-                        prevMedications.map((med) =>
-                          med.id === medication.id ? { ...med, timesTaken: med.timesTaken + 1 } : med
-                        )
-                      );
-                    }}
+                    onClick={() => handleButtonClick(medication.id)}
                     className="btn btn-sm btn-take"
                   >
                     Take

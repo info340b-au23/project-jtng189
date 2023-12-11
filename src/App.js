@@ -33,19 +33,17 @@ export default function App() {
     return <NavBar username={username} />;
   };
 
-
-
   const RequireAuth = () => {
     if (!authCheckComplete) {
       return null;
     }
-  
+
     if (currentUser) {
       return (
         <Routes>
           <Route index element={<Navigate to="/locator" />} />
           {/* Use a dedicated route for MedicationTable */}
-          <Route path="tracker" element={<MedicationTable />} />
+          <Route path="tracker/*" element={<MedicationTable />} />
         </Routes>
       );
     } else {
@@ -61,7 +59,6 @@ export default function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="locator" element={<Locator userId={currentUser?.userId} />} />
         <Route path="calendar" element={<Calendar />} />
-        <Route path="tracker" element={<MedicationTable />} />
         <Route path="*" element={<RequireAuth />} />
       </Routes>
       <Footer />
