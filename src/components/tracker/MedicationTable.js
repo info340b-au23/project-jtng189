@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { getDatabase, ref, onValue, push, set } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useParams } from 'react-router-dom';
 
@@ -9,60 +9,78 @@ function MedicationTable() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [medicationName, setMedicationName] = useState('');
   const [doseAmount, setDoseAmount] = useState('');
-  const [selectedMedication, setSelectedMedication] = useState(null);
+  const medicationsRef = useRef(null);
 
   const db = getDatabase();
   const auth = getAuth();
-  let medicationsRef;
+
+  const fetchData = useCallback(async () => {
+    try {
+      console.log('Fetching data...');
+      const firebaseUser = await new Promise((resolve) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          unsubscribe();
+          resolve(user);
+        });
+      });
+
+      if (!firebaseUser) {
+        console.log('User not found.');
+        setMedications([]);
+      } else {
+        console.log('User found:', firebaseUser.uid);
+        const userMedicationsRef = ref(db, `medications/${firebaseUser.uid}`);
+
+        medicationsRef.current = userMedicationsRef;
+
+        onValue(userMedicationsRef, (snapshot) => {
+          const medicationsValue = snapshot.val();
+          const medicationsArray = medicationsValue ? Object.values(medicationsValue) : [];
+
+          console.log('Medications array:', medicationsArray);
+
+          const filteredMedications = id
+            ? medicationsArray.filter((med) => med.id === parseInt(id, 10))
+            : medicationsArray;
+
+          console.log('Filtered medications:', filteredMedications);
+
+          setMedications(filteredMedications);
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  }, [auth, db, id]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const firebaseUser = await new Promise((resolve) => {
-          const unsubscribe = onAuthStateChanged(auth, (user) => {
-            unsubscribe();
-            resolve(user);
-          });
-        });
-
-        if (!firebaseUser) {
-          setMedications([]);
-          medicationsRef = ref(db, 'medications/' + null);
-        } else {
-          medicationsRef = ref(db, 'medications/' + firebaseUser.uid);
-          onValue(medicationsRef, (snapshot) => {
-            const medicationsValue = snapshot.val();
-            if (medicationsValue) {
-              setMedications(medicationsValue);
-
-              setSelectedMedication(
-                id ? medicationsValue.find((med) => med.id === parseInt(id, 10)) : null
-              );
-            }
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    };
-
     fetchData();
-  }, [auth, db, id]);
+  }, [fetchData]);
 
   const handleAddMedication = async () => {
     try {
-      if (medicationsRef) {
+      if (medicationsRef.current) {
         const newMedication = {
-          id: medications.length + 1,
           name: medicationName,
           dose: parseInt(doseAmount, 10),
           timesTaken: 0,
         };
 
-        await set(medicationsRef, [...medications, newMedication]);
+        const newMedicationRef = push(medicationsRef.current);
+        const newMedicationSnapshot = await newMedicationRef;
+        const newMedicationId = newMedicationSnapshot.key;
+
+        // Assign the generated key as the id
+        newMedication.id = newMedicationId;
+
+        await set(newMedicationRef, newMedication);
+
         setShowAddModal(false);
         setMedicationName('');
         setDoseAmount('');
+
+        // Call fetchData to update the medications array
+        fetchData();
       } else {
         console.error('Error: medicationsRef is undefined');
       }
@@ -71,18 +89,51 @@ function MedicationTable() {
     }
   };
 
-  const handleButtonClick = (medicationId) => {
-    setMedications((prevMedications) =>
-      prevMedications.map((medication) =>
-        medication.id === medicationId
-          ? { ...medication, timesTaken: medication.timesTaken + 1 }
-          : medication
-      )
-    );
-  };
-
   return (
-    <div className="table-responsive" style={{ position: 'relative' }}>
+    <div className="table-responsive">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Medication Name</th>
+            <th>Dose Amount (mg)</th>
+            <th>Times Taken</th>
+            <th>Taken Today?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {medications.map((medication) =>
+            typeof medication === 'object' ? (
+              <tr key={medication.id}>
+                <td>{medication.name}</td>
+                <td>{medication.dose}</td>
+                <td>{medication.timesTaken}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      console.log('Clicked medicationId:', medication.id);
+                      setMedications((prevMedications) =>
+                        prevMedications.map((med) =>
+                          med.id === medication.id ? { ...med, timesTaken: med.timesTaken + 1 } : med
+                        )
+                      );
+                    }}
+                    className="btn btn-sm btn-take"
+                  >
+                    Take
+                  </button>
+                </td>
+              </tr>
+            ) : null
+          )}
+        </tbody>
+      </table>
+
+      <div className="text-right mt-3">
+        <button className="btn btn-success" onClick={() => setShowAddModal(true)}>
+          Add Medication
+        </button>
+      </div>
+
       {showAddModal && (
         <div className="modal">
           <div className="modal-content">
@@ -107,54 +158,6 @@ function MedicationTable() {
             <button onClick={handleAddMedication}>Add Medication</button>
           </div>
         </div>
-      )}
-
-      <button
-        className="btn btn-success"
-        style={{ position: 'absolute', bottom: '10px', right: '10px' }}
-        onClick={() => setShowAddModal(true)}
-      >
-        Add Medication
-      </button>
-
-      {selectedMedication ? (
-        <div>
-          <h2>{selectedMedication.name}</h2>
-          <p>Dose: {selectedMedication.dose} mg</p>
-          <p>Times Taken: {selectedMedication.timesTaken}</p>
-        </div>
-      ) : (
-        <>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Medication Name</th>
-                <th>Dose Amount (mg)</th>
-                <th>Times Taken</th>
-                <th>Taken Today?</th>
-              </tr>
-            </thead>
-            <tbody>
-              {medications.map((medication) => (
-                <tr key={medication.id}>
-                  <td>{medication.name}</td>
-                  <td>{medication.dose}</td>
-                  <td>{medication.timesTaken}</td>
-                  <td>
-                    <button
-                      onClick={() => handleButtonClick(medication.id)}
-                      className="btn btn-sm btn-take"
-                    >
-                      Take
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <img src="/img/medication.png" alt="Medication" className="smaller-image" />
-        </>
       )}
     </div>
   );
