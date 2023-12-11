@@ -1,26 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useParams } from 'react-router-dom';
 
 function MedicationTable() {
+  const { id } = useParams(); // Access the path parameter
 
-  const navigate = useNavigate();
-  const { id } = useParams();
-
-  useEffect(() => {
-    // Access the 'id' parameter here and use it as needed
-    console.log('Path parameter (id):', id);
-  }, [id]);
-
-  const [medications, setMedications] = useState([
-    { id: 1, name: 'Aspirin', dose: 100, timesTaken: 0 },
-    { id: 2, name: 'Ibuprofen', dose: 200, timesTaken: 0 },
-    { id: 3, name: 'Lisinopril', dose: 10, timesTaken: 0 },
-    { id: 4, name: 'Simvastatin', dose: 20, timesTaken: 0 },
-  ]);
-
+  const [medications, setMedications] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [medicationName, setMedicationName] = useState('');
   const [doseAmount, setDoseAmount] = useState('');
+  const [selectedMedication, setSelectedMedication] = useState(null);
+
+  const db = getDatabase();
+  let medicationsRef;
+
+  const auth = getAuth();
+  onAuthStateChanged(auth, (firebaseUser) => {
+    if (!firebaseUser) {
+      setMedications([]);
+      medicationsRef = ref(db, 'medications/' + null);
+    } else {
+      medicationsRef = ref(db, 'medications/' + firebaseUser.uid);
+      onValue(medicationsRef, (snapshot) => {
+        const medicationsValue = snapshot.val();
+        if (medicationsValue) {
+          setMedications(medicationsValue);
+
+          // If an ID is provided, select the medication with that ID
+          setSelectedMedication(
+            id ? medicationsValue.find((med) => med.id === parseInt(id, 10)) : null
+          );
+        }
+      });
+    }
+  });
 
   const handleAddMedication = () => {
     const newMedication = {
@@ -30,11 +44,15 @@ function MedicationTable() {
       timesTaken: 0,
     };
 
-    setMedications((prevMedications) => [...prevMedications, newMedication]);
-
-    setShowAddModal(false);
-    setMedicationName('');
-    setDoseAmount('');
+    set(medicationsRef, [...medications, newMedication])
+      .then(() => {
+        setShowAddModal(false);
+        setMedicationName('');
+        setDoseAmount('');
+      })
+      .catch((error) => {
+        console.error('Error adding medication: ', error);
+      });
   };
 
   const handleButtonClick = (medicationId) => {
@@ -49,33 +67,41 @@ function MedicationTable() {
 
   return (
     <div className="table-responsive">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Medication Name</th>
-            <th>Dose Amount (mg)</th>
-            <th>Times Taken</th>
-            <th>Taken Today?</th>
-          </tr>
-        </thead>
-        <tbody>
-          {medications.map((medication) => (
-            <tr key={medication.id}>
-              <td>{medication.name}</td>
-              <td>{medication.dose}</td>
-              <td>{medication.timesTaken}</td>
-              <td>
-                <button
-                  onClick={() => handleButtonClick(medication.id)}
-                  className="btn btn-sm btn-take"
-                >
-                  Take
-                </button>
-              </td>
+      {selectedMedication ? (
+        <div>
+          <h2>{selectedMedication.name}</h2>
+          <p>Dose: {selectedMedication.dose} mg</p>
+          <p>Times Taken: {selectedMedication.timesTaken}</p>
+        </div>
+      ) : (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Medication Name</th>
+              <th>Dose Amount (mg)</th>
+              <th>Times Taken</th>
+              <th>Taken Today?</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {medications.map((medication) => (
+              <tr key={medication.id}>
+                <td>{medication.name}</td>
+                <td>{medication.dose}</td>
+                <td>{medication.timesTaken}</td>
+                <td>
+                  <button
+                    onClick={() => handleButtonClick(medication.id)}
+                    className="btn btn-sm btn-take"
+                  >
+                    Take
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
 
       <div className="text-right mt-3">
         <button className="btn btn-success" onClick={() => setShowAddModal(true)}>
@@ -83,15 +109,6 @@ function MedicationTable() {
         </button>
       </div>
 
-      <div className="centered-container">
-        <img
-          src="/img/medication.png"
-          alt="Medication"
-          className="header-image smaller-image"
-        />
-      </div>
-
-      {/* Add Medication Modal */}
       {showAddModal && (
         <div className="modal">
           <div className="modal-content">
