@@ -6,15 +6,15 @@ import { PharmacyNotes } from "./PharmacyNotes";
 export function PharmacyInformation(props) {
     const pharmacy = props.pharmacy;
 
-    const [name, setName] = useState('');
-    const [address, setAddress] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
 
     // Sets the initial values of useStates to selected pharmacy
     useEffect(() => {
-        setAddress(pharmacy.address || '');
-        setPhoneNumber(pharmacy.phoneNumber || '');
-        setName(pharmacy.name || '');
+        setAddress(pharmacy.address || "");
+        setPhoneNumber(pharmacy.phoneNumber || "");
+        setName(pharmacy.name || "");
     }, [pharmacy]);
 
     const addressChange = (event) => {
@@ -33,9 +33,9 @@ export function PharmacyInformation(props) {
 
     const deleteInformation = (pharmacy, pharmacyList) => {
         props.delete(pharmacy, pharmacyList);
-        setName('');
-        setAddress('');
-        setPhoneNumber('');
+        setName("");
+        setAddress("");
+        setPhoneNumber("");
     };
 
     const displayInformation = () => {
@@ -47,7 +47,7 @@ export function PharmacyInformation(props) {
             return (
                 <div className="card-body">
                     <div>
-                        <a style={{ textDecoration: 'none' }}
+                        <a style={{ textDecoration: "none" }}
                             href={"https://maps.google.com/?q=" + address}>
                             <i className="material-icons" aria-label="Pharmacy location"><HomeIcon /></i>
                         </a>
@@ -56,7 +56,7 @@ export function PharmacyInformation(props) {
                         ></input>
                     </div>
                     <div>
-                        <a style={{ textDecoration: 'none' }} href={"tel:" + phoneNumber}>
+                        <a style={{ textDecoration: "none" }} href={"tel:" + phoneNumber}>
                             <i className="material-icons" aria-label="Call Pharmacy Phone Number"><CallIcon /></i>
                         </a>
                         <span >Number (#):</span> <br />
