@@ -4,11 +4,11 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 export function PharmacyNotes(props) {
     const pharmacy = props.pharmacy;
 
-    const [note, setNote] = useState('');
+    const [note, setNote] = useState("");
     const [showDeleteWarning, setShowDeleteWarning] = useState(false);
 
     useEffect(() => {
-        setNote(pharmacy.note || '');
+        setNote(pharmacy.note || "");
         setShowDeleteWarning(false);
     }, [pharmacy]);
 
@@ -36,7 +36,7 @@ export function PharmacyNotes(props) {
         setShowDeleteWarning(false);
         if (confirmation) {
             props.delete(pharmacy, props.list);
-            setNote('');
+            setNote("");
         }
     }
 

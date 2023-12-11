@@ -45,9 +45,9 @@ export function PharmacyAdd(props) {
             // Adds pharmacy
             props.add(name, address, phoneNumber);
             // Resets form input
-            setName('');
-            setAddress('');
-            setPhoneNumber('');
+            setName("");
+            setAddress("");
+            setPhoneNumber("");
         }
     }
 

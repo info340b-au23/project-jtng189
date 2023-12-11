@@ -10,8 +10,8 @@ export function Locator(props) {
     const [pharmacyArray, setPharmacyArray] = useState([]);
     const [selectedPharmacy, setSelectedPharmacy] = useState({ name: "" });
     const [showAlert, setShowAlert] = useState(false);
-    const [alertType, setAlertType] = useState('');
-    const [alertMessage, setAlertMessage] = useState('');
+    const [alertType, setAlertType] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
 
     const db = getDatabase();
     let pharmacyArrayRef = ref(db, "users/" + props.userId + "/pharmacyArray");
@@ -23,17 +23,17 @@ export function Locator(props) {
         onAuthStateChanged(auth, (firebaseUser) => {
             if (!firebaseUser) {
                 setPharmacyArray([]);
-                setSelectedPharmacy({ name: '' });
+                setSelectedPharmacy({ name: "" });
                 pharmacyArrayRef = ref(db, "users/" + null + "/pharmacyArray");
 
                 set(pharmacyArrayRef, {})
                     .then(() => {
-                        setAlertType('warning');
-                        setAlertMessage('Login in order to save information.');
+                        setAlertType("warning");
+                        setAlertMessage("Login in order to save information.");
                         setShowAlert(true);
                     })
                     .catch((error) => {
-                        setAlertType('failure');
+                        setAlertType("failure");
                         setAlertMessage(error.message);
                         setShowAlert(true);
                     })
@@ -69,12 +69,12 @@ export function Locator(props) {
         setPharmacyArray(newPharmacyArray);
         set(pharmacyArrayRef, newPharmacyArray)
             .then(() => {
-                setAlertType('success');
-                setAlertMessage('Successfully created the pharmacy.')
+                setAlertType("success");
+                setAlertMessage("Successfully created the pharmacy.")
                 setShowAlert(true);
             })
             .catch((error) => {
-                setAlertType('failure');
+                setAlertType("failure");
                 setAlertMessage(error.message);
                 setShowAlert(true);
             })
@@ -97,12 +97,12 @@ export function Locator(props) {
         });
         set(pharmacyArrayRef, newList)
             .then(() => {
-                setAlertType('success');
-                setAlertMessage('Successfully edited the pharmacy.')
+                setAlertType("success");
+                setAlertMessage("Successfully edited the pharmacy.")
                 setShowAlert(true);
             })
             .catch((error) => {
-                setAlertType('failure');
+                setAlertType("failure");
                 setAlertMessage(error.message);
                 setShowAlert(true);
             })
@@ -114,12 +114,12 @@ export function Locator(props) {
         setPharmacyArray(pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy));
         set(pharmacyArrayRef, pharmacyList.filter((pharmacy) => pharmacy !== currentPharmacy))
             .then(() => {
-                setAlertType('success');
-                setAlertMessage('Successfully deleted the pharmacy.')
+                setAlertType("success");
+                setAlertMessage("Successfully deleted the pharmacy.")
                 setShowAlert(true);
             })
             .catch((error) => {
-                setAlertType('failure');
+                setAlertType("failure");
                 setAlertMessage(error.message);
                 setShowAlert(true);
             })

@@ -52,7 +52,7 @@ export function PharmacyList(props) {
     return (
         <div className="pharmacy-list col col-sm col-md col-lg">
             <h3><i className="material-icons" aria-label="Pharmacy List"><ListIcon /></i>Pharmacy List</h3>
-            <div className='card'>
+            <div className="card">
                 <section className="locator">
                     <input type="radio" id="name-filter" name="filter" value="name" onChange={onChangeFilter} checked={filter === "name"}></input>
                     <label className="filter-spacing" htmlFor="name-filter">Name</label>

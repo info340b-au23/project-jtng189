@@ -8,13 +8,13 @@ import { Loader } from "@googlemaps/js-api-loader";
 // import SECRETS from "./secrets.json"
 // const API_KEY = SECRETS.API_KEY;
 
-const API_KEY = '';
+const API_KEY = "";
 
 export function PharmacyMap(props) {
     const [name, setName] = useState("");
     const [location, setLocation] = useState({ lat: 47.65485149091028, lng: -122.30749748366422 });
     const [showError, setShowError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         const loader = new Loader({
@@ -23,12 +23,12 @@ export function PharmacyMap(props) {
             libraries: ["geocoding"]
         });
 
-        loader.importLibrary('geocoding')
+        loader.importLibrary("geocoding")
             .then(() => {
                 const geocoder = new window.google.maps.Geocoder();
 
                 geocoder.geocode({ address: props.pharmacy.address }, (results, status) => {
-                    if (status === 'OK') {
+                    if (status === "OK") {
                         setLocation({
                             lat: results[0].geometry.location.lat(),
                             lng: results[0].geometry.location.lng(),
