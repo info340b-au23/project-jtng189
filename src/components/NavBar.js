@@ -63,7 +63,7 @@ export function NavBar(props) {
 
     function displayUsername() {
         if (props.username === '') {
-            return (<Link to="login">Sign Up</Link>);
+            return (<Link to="login">Login</Link>);
         } else {
             return (
                 <a className="username" href="#" onClick={toggleLogOut}>{props.username}</a>
