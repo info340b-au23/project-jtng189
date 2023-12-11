@@ -82,47 +82,7 @@ function MedicationTable() {
   };
 
   return (
-    <div className="table-responsive">
-      {selectedMedication ? (
-        <div>
-          <h2>{selectedMedication.name}</h2>
-          <p>Dose: {selectedMedication.dose} mg</p>
-          <p>Times Taken: {selectedMedication.timesTaken}</p>
-        </div>
-      ) : (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Medication Name</th>
-              <th>Dose Amount (mg)</th>
-              <th>Times Taken</th>
-              <th>Taken Today?</th>
-            </tr>
-          </thead>
-          <tbody>
-            {medications.map((medication) => (
-              <tr key={medication.id}>
-                <td>{medication.name}</td>
-                <td>{medication.dose}</td>
-                <td>{medication.timesTaken}</td>
-                <td>
-                  <button
-                    onClick={() => handleButtonClick(medication.id)}
-                    className="btn btn-sm btn-take"
-                  >
-                    Take
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-        <img src="/img/medication.png" alt="Medication" className="smaller-image" />
-      </div>
-
+    <div className="table-responsive" style={{ position: 'relative' }}>
       {showAddModal && (
         <div className="modal">
           <div className="modal-content">
@@ -147,6 +107,54 @@ function MedicationTable() {
             <button onClick={handleAddMedication}>Add Medication</button>
           </div>
         </div>
+      )}
+
+      <button
+        className="btn btn-success"
+        style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+        onClick={() => setShowAddModal(true)}
+      >
+        Add Medication
+      </button>
+
+      {selectedMedication ? (
+        <div>
+          <h2>{selectedMedication.name}</h2>
+          <p>Dose: {selectedMedication.dose} mg</p>
+          <p>Times Taken: {selectedMedication.timesTaken}</p>
+        </div>
+      ) : (
+        <>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Medication Name</th>
+                <th>Dose Amount (mg)</th>
+                <th>Times Taken</th>
+                <th>Taken Today?</th>
+              </tr>
+            </thead>
+            <tbody>
+              {medications.map((medication) => (
+                <tr key={medication.id}>
+                  <td>{medication.name}</td>
+                  <td>{medication.dose}</td>
+                  <td>{medication.timesTaken}</td>
+                  <td>
+                    <button
+                      onClick={() => handleButtonClick(medication.id)}
+                      className="btn btn-sm btn-take"
+                    >
+                      Take
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <img src="/img/medication.png" alt="Medication" className="smaller-image" />
+        </>
       )}
     </div>
   );
