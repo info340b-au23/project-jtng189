@@ -16,7 +16,6 @@ export function Calendar() {
     const [searchTerm, setSearchTerm] = useState("");
     const [calendarView, setCalendarView] = useState("Month");
     const [index, setIndex] = useState(today.month());
-    // const [events, setEvents] = useState([]);
 
     const views = ["Month", "Week"].map((view) => {
         return <option key = {view} value = {view}>{view}</option>
@@ -80,10 +79,16 @@ export function Calendar() {
     function applyView(event) {
         if (event.target.value == "Month") {
             setIndex(currentWeek.clone().startOf("week").month());
-            setCurrentWeek(moment().month(index));
+
+            setCurrentWeek(currentWeek.clone().startOf("month").startOf("week"));
+
+            setCurrentMonth(currentMonth.clone().startOf("month"));
         } else {
             setIndex(currentMonth.clone().startOf("month").week() - 1);
-            setCurrentMonth(moment().week(index));
+
+            setCurrentMonth(currentMonth.clone().startOf("week").startOf("month"));
+
+            setCurrentWeek(currentWeek.clone().startOf("week"));
         }
         setCalendarView(event.target.value);
     }

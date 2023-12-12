@@ -7,7 +7,6 @@ import AddIcon from "@mui/icons-material/Add";
 export function CalendarEvent(props) {
     const [events, setEvents] = useState([]);
     const [eventName, setEventName] = useState("");
-    const [eventTime, setEventTime] = useState("");
     const [eventDescription, setEventDescription] = useState("");
     const [showAddEvent, setShowAddEvent] = useState(false);
     const [alertMessage, setAlertMessage] = useState(null);
@@ -22,7 +21,7 @@ export function CalendarEvent(props) {
         onAuthStateChanged(auth, (firebaseUser) => {
             if (!firebaseUser) {
                 setEvents([]);
-                eventsRef = null;
+                eventsRef = ref(db, "events");
             } else {
                 eventsRef = ref(db, "events/" + firebaseUser.uid);
                 onValue(eventsRef, (snapshot) => {
@@ -31,9 +30,10 @@ export function CalendarEvent(props) {
                         setEvents(eventsValue);
                     }
                 });
+                console.log(firebaseUser.uid);
             }
         });
-    }, [])
+    }, [eventName, eventDescription])
 
     const addEvent = (event) => {
         event.preventDefault();
@@ -67,10 +67,6 @@ export function CalendarEvent(props) {
         setEventName(event.target.value);
     }
 
-    function timeChange(event) {
-        setEventTime(event.target.value);
-    }
-
     function descriptionChange(event) {
         setEventDescription(event.target.value);
     }
@@ -79,20 +75,8 @@ export function CalendarEvent(props) {
         setShowAddEvent(!showAddEvent);
     }
 
-    // function handleEvent(event) {
-    //     addEvent(props.date, eventName, eventDescription)
-        
-    //     event.preventDefault();
-    //     const addEvent = {name: eventName, description: eventDescription};
-    //     props.setEvents([...props.events, addEvent]);
-    //     setEventName("");
-    //     setEventTime("");
-    //     setEventDescription("");
-    // }
-
     function cancelEvent() {
         setEventName("");
-        setEventTime("");
         setEventDescription("");
         eventForm();
     }
@@ -101,7 +85,7 @@ export function CalendarEvent(props) {
         <div className="container" id="event">
             <div className="card mt-5">
                 <div className="card-header d-flex justify-content-between align-items-center">
-                    <strong>Planned Events</strong>
+                    <strong>Planned Events on {props.date}</strong>
                     {!showAddEvent && (
                         <button type="button" className="btn btn-primary" onClick={eventForm}>
                                 <AddIcon />Add Event
@@ -110,7 +94,7 @@ export function CalendarEvent(props) {
                 </div>
                 <div className="card-body">
                     <div className="card-text">
-                        {events.map(event => (
+                        {filteredEvents.map(event => (
                             <span>
                                 <p>{event.name}</p>
                                 <ul>
@@ -130,15 +114,11 @@ export function CalendarEvent(props) {
                     <div className="card-body">
                         <form onSubmit={addEvent}>
                             <span className="form-group">
-                                <label for="event_input">Event:</label>
+                                <label htmlFor="event_input">Event:</label>
                                 <input type="text" className="form-control" id="event_input" placeholder="Name of the event" value={eventName} onChange={nameChange}/>
                             </span>
-                            {/* <span className="form-group mt-3">
-                                <label for="event_input">Time:</label>
-                                <input type="text" className="form-control" id="event_input" placeholder="Time of the event" value={eventTime} onChange={timeChange}/>
-                            </span> */}
                             <span className="form-group mt-3">
-                                <label for="description_input">Description:</label>
+                                <label htmlFor="description_input">Description:</label>
                                 <input type="text" className="form-control" id="description_input" placeholder="Description of the event" value={eventDescription} onChange={descriptionChange}/>
                             </span>
                             <span className="d-flex justify-content-between">

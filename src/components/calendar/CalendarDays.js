@@ -18,8 +18,8 @@ function Day({ day, checkValidDay, validDay, invalidDay }) {
 export function Week({ today, newWeek, view }) {
     const [showEvent, setShowEvent] = useState(false);
     const [events, setEvents] = useState([]);
-    const [selectDay, setSelectDay] = useState();
-    const m = today.month();
+    const [selectDay, setSelectDay] = useState(moment().date());
+    const m = today.month() + 1;
 
     const month = [];
     for (let i = 0; i < today.daysInMonth(); i++) {
@@ -105,9 +105,7 @@ export function Week({ today, newWeek, view }) {
     return (
         <div>
             {chosenView(view)}
-            {showEvent && (
-                <CalendarEvent events={events} setEvents={setEvents} date={m + "-" + selectDay}/>
-            )}
+            <CalendarEvent events={events} setEvents={setEvents} date={m + "-" + selectDay}/>
         </div>
     )
 }
