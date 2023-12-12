@@ -42,9 +42,9 @@ export function PharmacyAdd(props) {
         event.preventDefault();
 
         if (nameError === "" && addressError === "") {
-            // Adds pharmacy
+            
             props.add(name, address, phoneNumber);
-            // Resets form input
+            
             setName("");
             setAddress("");
             setPhoneNumber("");
