@@ -35,7 +35,7 @@ export function PharmacyMap(props) {
                         });
                         setShowError(false);
                     } else {
-                        setErrorMessage("Geocoding did not return any results/API Key is no longer available for use.");
+                        setErrorMessage("Address did not return any results/API Key is no longer available for use.");
                         setShowError(true);
                     }
                 });
