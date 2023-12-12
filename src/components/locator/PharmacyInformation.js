@@ -10,7 +10,7 @@ export function PharmacyInformation(props) {
     const [address, setAddress] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
 
-    // Sets the initial values of useStates to selected pharmacy
+    // Sets the initial values of states to selected pharmacy
     useEffect(() => {
         setAddress(pharmacy.address || "");
         setPhoneNumber(pharmacy.phoneNumber || "");

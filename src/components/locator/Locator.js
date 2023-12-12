@@ -49,13 +49,11 @@ export function Locator(props) {
         })
     }, [])
 
-    // creates a unique key
     const pharmacyKey = (pharmacyName) => {
         const pharmacySize = pharmacyArray.length;
         return (pharmacyName + pharmacySize);
     }
 
-    // creates a pharmacy
     const createPharmacy = (pharmacyName, pharmacyAddress, pharmacyNumber) => {
         const newPharmacyArray = ([...pharmacyArray,
         {
